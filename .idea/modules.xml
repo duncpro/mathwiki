@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.duncpro.mathwiki.mathwiki.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.duncpro.mathwiki.mathwiki.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.duncpro.mathwiki.mathwiki.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.duncpro.mathwiki.mathwiki.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mathwiki.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mathwiki.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mathwiki.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mathwiki.test.iml" />
     </modules>

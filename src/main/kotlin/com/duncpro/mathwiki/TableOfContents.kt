@@ -1,9 +1,8 @@
 package com.duncpro.mathwiki
 
 import com.duncpro.mathwiki.graphics.Numberline
+import com.duncpro.mathwiki.topics.*
 import com.duncpro.webk.*
-import com.duncpro.mathwiki.topics.Functions
-import com.duncpro.mathwiki.topics.Limits
 
 fun TableOfContents() = UI {
     val limitWidth = useStyleClass(const(AnonymousCSSClass("""
@@ -25,7 +24,14 @@ fun TableOfContents() = UI {
             +Functions()
             +hr()
             +Limits()
-            +Numberline()
+            +hr()
+            +EvenNumbers()
+            +hr()
+            +OddNumbers()
+            +hr()
+            +EulersConstant()
+            +hr()
+            +LinearEquations()
         }
     }
 }

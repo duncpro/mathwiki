@@ -8,7 +8,11 @@ import org.w3c.dom.Element
 
 fun FcScope.useResizeObserver(): Pair<StaticDOMHandle<Element>, ReactiveRef<DOMRectReadOnly?>> {
     val domHandle = useStaticDOMHandle<Element>()
+    val rect = useResizeObserver(domHandle)
+    return Pair(domHandle, rect)
+}
 
+fun FcScope.useResizeObserver(domHandle: StaticDOMHandle<out Element>): ReactiveRef<DOMRectReadOnly?> {
     val rect: ReactiveRef<DOMRectReadOnly?> = useValueStream(initialValue = null) {
         val domElement = domHandle.unwrap()
         @Suppress("UNUSED_VARIABLE")
@@ -25,6 +29,5 @@ fun FcScope.useResizeObserver(): Pair<StaticDOMHandle<Element>, ReactiveRef<DOMR
             Unit
         }
     }
-
-    return Pair(domHandle, rect)
+    return rect
 }

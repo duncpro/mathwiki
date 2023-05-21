@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     implementation(npm("katex", "0.16.7"))
-    implementation("com.duncpro.webk:webk:1.9")
+    implementation("com.duncpro.webk:webk:1.11")
     testImplementation(kotlin("test"))
 }
 

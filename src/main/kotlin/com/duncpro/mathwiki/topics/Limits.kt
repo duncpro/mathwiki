@@ -1,10 +1,9 @@
 package com.duncpro.mathwiki.topics
 
-import com.duncpro.mathwiki.centerText
 import com.duncpro.mathwiki.bold
+import com.duncpro.mathwiki.centerText
 import com.duncpro.webk.*
 import com.duncpro.mathwiki.graphics.Math
-import com.duncpro.mathwiki.layout.Collapsable
 
 fun Limits() = UI {
     div {
@@ -25,10 +24,6 @@ fun Limits() = UI {
                 +"The limit of "; +Math("f(x)"); +" as "; +Math("x"); +" approaches "; +Math("c")
                 +" from the "; +span(bold) { +"positive direction " }; +"is "; +Math("y"); +"."
             }
-        }
-        +h2 { +"Intermediate Value Theorem" }
-        +Collapsable {
-            +"Hello World!"
         }
     }
 }
