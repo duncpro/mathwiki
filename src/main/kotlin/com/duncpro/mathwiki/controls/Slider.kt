@@ -13,6 +13,7 @@ fun <T> Slider(_range: ReactiveRef<SliderRange<T>>, _value: ReactiveRef<T>, onSl
 
     val `$container` = useStyleClass(const(AnonymousCSSClass("display: flex")))
     val range by _range
+    val value by _value
 
     div(`$container`) {
         +span { if (label != null) +label }
@@ -21,9 +22,9 @@ fun <T> Slider(_range: ReactiveRef<SliderRange<T>>, _value: ReactiveRef<T>, onSl
             attr(HTMLInputElement::min, ref { "${range.min}" }),
             attr(HTMLInputElement::max, ref { "${range.max}" }),
             attr(HTMLInputElement::step, ref { "${range.step}" }),
-            attr(HTMLInputElement::value, ref { "${_value.bind()}" }),
+            attr(HTMLInputElement::value, ref { "$value" }),
             handle(HTMLInputElement::oninput) { _, e -> onSlide(_range.unref().fromString(e.value)) }
         )
-        +span { +ref { "${_value.bind()}" } }
+        +span { +ref { "$value" } }
     }
 }
