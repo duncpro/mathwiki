@@ -1,5 +1,7 @@
 package com.duncpro.mathwiki.topics
 
+import com.duncpro.mathwiki.controls.DecimalSliderRange
+import com.duncpro.mathwiki.controls.Slider
 import com.duncpro.mathwiki.graphics.*
 import com.duncpro.webk.*
 import org.w3c.dom.HTMLInputElement
@@ -18,27 +20,19 @@ fun LinearEquations() = UI {
             ))
         )))
         +div(RCStyle(const(AnonymousCSSClass("display: flex;")))) {
-            +label { +Math("m") }
-            +input(
-                attr(HTMLInputElement::type, const("range")),
-                attr(HTMLInputElement::min, const("-10")),
-                attr(HTMLInputElement::max, const("10")),
-                attr(HTMLInputElement::step, const("1")),
-                attr(HTMLInputElement::value, ref { "$m" }),
-                handle(HTMLInputElement::oninput) { _, e -> m = e.value.toInt() }
+            +Slider(
+                label = Math("m"),
+                _range = const(DecimalSliderRange(-10.0, 10.0, 1.0)),
+                _value = ref { m.toDouble() },
+                onSlide = { m = it.toInt() }
             )
-            +span { +ref { "$m" } }
             +span(RCStyle(const(AnonymousCSSClass("padding: 10px"))))
-            +label { +Math("b") }
-            +input(
-                attr(HTMLInputElement::type, const("range")),
-                attr(HTMLInputElement::min, const("-10")),
-                attr(HTMLInputElement::max, const("10")),
-                attr(HTMLInputElement::step, const("1")),
-                attr(HTMLInputElement::value, ref { "$b" }),
-                handle(HTMLInputElement::oninput) { _, e -> b = e.value.toInt() }
+            +Slider(
+                label = Math("b"),
+                _range = const(DecimalSliderRange(-10.0, 10.0, 1.0)),
+                _value = ref { b.toDouble() },
+                onSlide = { b = it.toInt() }
             )
-            +span { +ref { "$b" } }
         }
     }
 }

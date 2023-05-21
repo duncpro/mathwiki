@@ -1,6 +1,8 @@
 package com.duncpro.mathwiki.topics
 
 import com.duncpro.mathwiki.banner
+import com.duncpro.mathwiki.controls.DecimalSliderRange
+import com.duncpro.mathwiki.controls.Slider
 import com.duncpro.mathwiki.graphics.*
 import com.duncpro.webk.*
 import org.w3c.dom.HTMLInputElement
@@ -21,23 +23,16 @@ fun EulersConstant() = UI {
         }
         +br()
         +Graph2d(const(Graph2dFormat(
-            _fns = ref {
-                listOf(
-                    Graph2dFunction(fn = { x -> exp(x) }),
-                    Graph2dFunction(fn = { x -> exp(x1) * (x - x1) + exp(x1) }, color = "blue")
-                )
-            },
+            _fns = const(listOf(
+                Graph2dFunction(fn = { x -> exp(x) }),
+                Graph2dFunction(fn = { x -> exp(x1) * (x - x1) + exp(x1) }, color = "blue")
+            )),
         )))
-        +div(RCStyle(const(AnonymousCSSClass("display: flex")))) {
-            +label { +Math("x_1") }
-            +input(
-                attr(HTMLInputElement::type, const("range")),
-                attr(HTMLInputElement::min, const("-3")),
-                attr(HTMLInputElement::max, const("2")),
-                attr(HTMLInputElement::step, const("0.1")),
-                attr(HTMLInputElement::value, ref { "$x1" }),
-                handle(HTMLInputElement::oninput) { _, e -> x1 = e.value.toDouble() })
-            +span { +ref { "$x1" } }
-        }
+        +Slider(
+            label = Math("x_1"),
+            _range = const(DecimalSliderRange(min = -3.0, max = 2.0, step = 0.1)),
+            _value = ref { x1 },
+            onSlide = { nextValue -> x1 = nextValue },
+        )
     }
 }

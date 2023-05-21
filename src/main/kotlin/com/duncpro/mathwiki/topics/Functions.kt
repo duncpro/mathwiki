@@ -26,8 +26,7 @@ fun Functions() = UI {
                 }
             }
             +h3 { +"Simplification through Division does not imply Equality" }
-            +MathBlock(
-                """
+            +MathBlock("""
                 \begin{align} 
                     f(x) =& \frac{x^2-1}{x-1} = \frac{(x+1)(x-1)}{x-1} \\
                     g(x) =& x+1
