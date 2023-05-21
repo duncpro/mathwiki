@@ -20,7 +20,7 @@ fun <T> Slider(_range: ReactiveRef<SliderRange<T>>, _value: ReactiveRef<T>, onSl
             attr(HTMLInputElement::type, const("range")),
             attr(HTMLInputElement::min, ref { "${range.min}" }),
             attr(HTMLInputElement::max, ref { "${range.max}" }),
-            attr(HTMLInputElement::step, ref { range.step.toString() }),
+            attr(HTMLInputElement::step, ref { "${range.step}" }),
             attr(HTMLInputElement::value, ref { "${_value.bind()}" }),
             handle(HTMLInputElement::oninput) { _, e -> onSlide(_range.unref().fromString(e.value)) }
         )
