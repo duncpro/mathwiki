@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="dev" type="CompoundRunConfigurationType">
+    <toRun name="mathwiki [browserDevelopmentRun]" type="GradleRunConfiguration" />
+    <toRun name="Debug JS" type="JavascriptDebugType" />
+    <method v="2" />
+  </configuration>
+</component>

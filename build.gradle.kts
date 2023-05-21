@@ -22,6 +22,7 @@ kotlin {
         browser {
             commonWebpackConfig {
                 devtool = "source-map"
+                devServer?.open = false
                 cssSupport {
                     enabled.set(true)
                 }
