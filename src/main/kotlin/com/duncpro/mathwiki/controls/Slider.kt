@@ -24,6 +24,6 @@ fun <T> Slider(_range: ReactiveRef<SliderRange<T>>, _value: ReactiveRef<T>, onSl
             attr(HTMLInputElement::value, ref { "${_value.bind()}" }),
             handle(HTMLInputElement::oninput) { _, e -> onSlide(_range.unref().fromString(e.value)) }
         )
-        +span { +ref { _value.bind().toString() } }
+        +span { +ref { "${_value.bind()}" } }
     }
 }
