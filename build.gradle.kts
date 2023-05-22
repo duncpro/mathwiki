@@ -1,6 +1,7 @@
 plugins {
     kotlin("js") version "1.8.21"
     idea
+
 }
 
 group = "com.duncpro.mathwiki"
@@ -18,7 +19,7 @@ dependencies {
 }
 
 kotlin {
-    js {
+    js(IR) {
         binaries.executable()
         browser {
             commonWebpackConfig {
