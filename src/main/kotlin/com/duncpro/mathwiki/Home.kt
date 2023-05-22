@@ -19,7 +19,6 @@ fun Home() = UI {
 
     div(padWithWhitespace) {
         +div(limitWidth) {
-            +"Hello World"
             +WikiSection("Personal Math Wiki") {
                 +EulersConstant()
                 +EvenNumbers()
@@ -27,6 +26,11 @@ fun Home() = UI {
                 +Limits()
                 +LinearEquations()
                 +OddNumbers()
+                +Circles()
+                +Parabolas()
+                +Derivatives()
+                +Integrals()
+                +Inequalities()
             }
         }
     }

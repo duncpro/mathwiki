@@ -3,13 +3,12 @@ package com.duncpro.mathwiki.layout
 import com.duncpro.mathwiki.util.encodeURIComponent
 import com.duncpro.mathwiki.util.h
 import com.duncpro.webk.*
-import kotlinx.browser.window
 import org.w3c.dom.HTMLAnchorElement
 import org.w3c.dom.HTMLElement
 
-class WikiIndexEntry(val title: String, val href: String)
+private class WikiIndexEntry(val title: String, val href: String)
 
-class WikiSectionContext(
+private class WikiSectionContext(
     val title: String,
     val index: UIList<WikiIndexEntry> = UIList(),
     val parent: WikiSectionContext?
@@ -27,17 +26,23 @@ fun WikiSection(title: String, children: Children) = UI {
     }
     path.reverse()
 
-    val id = path.joinToString(separator = "/")
+    val id = path.joinToString(separator = "/") { it.title }
+
+    val `$style` = useStyleClass(const(
+        AnonymousCSSClass("""
+        width: 100%;    
+    """)
+    ))
 
     useMountEffect {
         if (parent == null) return@useMountEffect
-        val entry = WikiIndexEntry(title, encodeURIComponent("#${encodeURIComponent(id)}"))
+        val entry = WikiIndexEntry(title, "#${encodeURIComponent(id)}")
         val parentIndex = parent.index.unref()
         parentIndex.add(entry)
         defer { parentIndex.remove(entry) }
     }
 
-    ContextProvider(context, div {
+    ContextProvider(context, div(`$style`) {
         +h(_n = const(path.size)) {
             +span(attr(HTMLElement::id, const(id))) { +title }
         }
@@ -46,16 +51,18 @@ fun WikiSection(title: String, children: Children) = UI {
     })
 }
 
-fun WikiSectionIndexView(entries: UIList<WikiIndexEntry>) = UI {
+private fun WikiSectionIndexView(entries: UIList<WikiIndexEntry>) = UI {
     val `$style` = useStyleClass { AnonymousCSSClass("""
-        max-height: 250px;
+        max-height: 150px;
         display: flex;
         flex-flow: wrap column;
     """) }
 
     ul(`$style`) {
-        ForEach(entries) { entry ->
-            li { entry.title }
+        +ForEach(entries) { entry ->
+            a(attr(HTMLAnchorElement::href, const(entry.href))) {
+                +li { +entry.title }
+            }
         }
     }
 }

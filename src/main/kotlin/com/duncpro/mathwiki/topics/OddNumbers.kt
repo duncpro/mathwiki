@@ -5,11 +5,11 @@ import com.duncpro.mathwiki.graphics.MathBlock
 import com.duncpro.mathwiki.graphics.Numberline
 import com.duncpro.mathwiki.graphics.NumberlineFormat
 import com.duncpro.mathwiki.graphics.NumberlinePointStyle
+import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.webk.*
 
 fun OddNumbers() = UI {
-    div {
-        +h1 { +"Odd Numbers" }
+    WikiSection("Odd Numbers") {
         +MathBlock("f(n) = 2n + 1")
         +Numberline(const(NumberlineFormat(
             _pointStyle = const { x -> NumberlinePointStyle(

@@ -3,6 +3,7 @@ package com.duncpro.mathwiki.topics
 import com.duncpro.mathwiki.controls.DecimalSliderRange
 import com.duncpro.mathwiki.controls.Slider
 import com.duncpro.mathwiki.graphics.*
+import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.webk.*
 import org.w3c.dom.HTMLInputElement
 
@@ -10,8 +11,7 @@ fun LinearEquations() = UI {
     var m by useLocalState(1)
     var b by useLocalState(0)
 
-    div {
-        +h1 { +"Linear Equations" }
+    WikiSection("Linear Equations") {
         +MathBlock("y=mx+b")
         +br()
         +Graph2d(const(Graph2dFormat(

@@ -4,6 +4,7 @@ import com.duncpro.mathwiki.banner
 import com.duncpro.mathwiki.controls.DecimalSliderRange
 import com.duncpro.mathwiki.controls.Slider
 import com.duncpro.mathwiki.graphics.*
+import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.webk.*
 import org.w3c.dom.HTMLInputElement
 import kotlin.math.exp
@@ -11,8 +12,7 @@ import kotlin.math.exp
 fun EulersConstant() = UI {
     var x1 by useLocalState(initialValue = 1.0)
 
-    div(banner) {
-        +h1 { +"Euler's Constant" }
+    WikiSection("Euler's Constant") {
         +p {
             +span(RCStyle(const(AnonymousCSSClass("color: red")))) {
                 +Math("f(x)=e^x")
