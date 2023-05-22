@@ -10,23 +10,31 @@ private class WikiIndexEntry(val title: String, val href: String)
 
 private class WikiSectionContext(
     val title: String,
+    val parent: WikiSectionContext?,
+    val anchorId: String,
+    val depth: Int,
     val index: UIList<WikiIndexEntry> = UIList(),
-    val parent: WikiSectionContext?
 )
+
+private fun WikiSectionContext(title: String, parent: WikiSectionContext?): WikiSectionContext {
+    val lineage = mutableListOf<WikiSectionContext>()
+    var next: WikiSectionContext? = parent
+    while (next != null) {
+        lineage.add(next)
+        next = next.parent
+    }
+    lineage.reverse()
+
+    val pathElements = ArrayList<String>(initialCapacity = lineage.size + 1)
+    for (ancestor in lineage) pathElements.add(ancestor.title)
+    pathElements.add(title)
+    val anchorId = pathElements.joinToString(separator = "/")
+    return WikiSectionContext(title, parent, anchorId, pathElements.size)
+}
 
 fun WikiSection(title: String, children: Children) = UI {
     val parent = useOptionalContext<WikiSectionContext>()
-    val context = WikiSectionContext(title, UIList(), parent)
-    val path = mutableListOf<WikiSectionContext>()
-
-    var next: WikiSectionContext? = context
-    while (next != null) {
-        path.add(next)
-        next = next.parent
-    }
-    path.reverse()
-
-    val id = path.joinToString(separator = "/") { it.title }
+    val context = WikiSectionContext(title, parent)
 
     val `$style` = useStyleClass(const(
         AnonymousCSSClass("""
@@ -36,15 +44,17 @@ fun WikiSection(title: String, children: Children) = UI {
 
     useMountEffect {
         if (parent == null) return@useMountEffect
-        val entry = WikiIndexEntry(title, "#${encodeURIComponent(id)}")
+        val entry = WikiIndexEntry(title, "#${encodeURIComponent(context.anchorId)}")
         val parentIndex = parent.index.unref()
         parentIndex.add(entry)
         defer { parentIndex.remove(entry) }
     }
 
     ContextProvider(context, div(`$style`) {
-        +h(_n = const(path.size)) {
-            +span(attr(HTMLElement::id, const(id))) { +title }
+        +h(_n = const(context.depth)) {
+            +span(attr(HTMLElement::id, const(context.anchorId))) {
+                +title
+            }
         }
         +WikiSectionIndexView(context.index)
         +children
