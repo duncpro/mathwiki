@@ -1,4 +1,4 @@
-package com.duncpro.mathwiki.layout
+package com.duncpro.mathwiki.util
 
 import com.duncpro.webk.FcScope
 import com.duncpro.webk.ReactiveRef

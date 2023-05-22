@@ -2,7 +2,7 @@ package com.duncpro.mathwiki.graphics
 
 import com.duncpro.mathwiki.CurrentTheme
 import com.duncpro.mathwiki.util.clamp
-import com.duncpro.mathwiki.layout.useResizeObserver
+import com.duncpro.mathwiki.util.useResizeObserver
 import com.duncpro.webk.*
 import kotlinx.browser.window
 import org.w3c.dom.CanvasRenderingContext2D

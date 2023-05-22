@@ -13,7 +13,7 @@ private class WikiSectionContext(
     val parent: WikiSectionContext?,
     val anchorId: String,
     val depth: Int,
-    val index: UIList<WikiIndexEntry> = UIList(),
+    val index: MutableUIList<WikiIndexEntry> = MutableUIList(),
 )
 
 private fun WikiSectionContext(title: String, parent: WikiSectionContext?): WikiSectionContext {
