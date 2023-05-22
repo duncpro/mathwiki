@@ -10,6 +10,7 @@ import kotlin.math.exp
 
 fun EulersConstant() = UI {
     var x1 by useLocalState(initialValue = 1.0)
+
     div(banner) {
         +h1 { +"Euler's Constant" }
         +p {

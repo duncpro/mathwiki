@@ -1,7 +1,7 @@
 package com.duncpro.mathwiki.graphics
 
 import com.duncpro.mathwiki.CurrentTheme
-import com.duncpro.mathwiki.clamp
+import com.duncpro.mathwiki.util.clamp
 import com.duncpro.mathwiki.layout.useResizeObserver
 import com.duncpro.webk.*
 import kotlinx.browser.window
@@ -29,7 +29,7 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
 
     val `#canvas` = useStaticDOMHandle<HTMLCanvasElement>()
     val canvasElementDimensions by useResizeObserver(`#canvas`)
-    val `.style` = useStyleClass { AnonymousCSSClass("""
+    val `$style` = useStyleClass { AnonymousCSSClass("""
         width: 100%;
         height: 100%;
     """) }
@@ -172,5 +172,5 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
         defer { canvasContext.clearRect(0.0, 0.0, canvasElementWidth, canvasElementHeight) }
     }
 
-    canvas(`#canvas`, `.style`, handleScroll)
+    canvas(`#canvas`, `$style`, handleScroll)
 }

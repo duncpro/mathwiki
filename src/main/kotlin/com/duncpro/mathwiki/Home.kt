@@ -1,10 +1,10 @@
 package com.duncpro.mathwiki
 
-import com.duncpro.mathwiki.graphics.Numberline
+import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.mathwiki.topics.*
 import com.duncpro.webk.*
 
-fun TableOfContents() = UI {
+fun Home() = UI {
     val limitWidth = useStyleClass(const(AnonymousCSSClass("""
         max-width: 780px;
     """)))
@@ -19,19 +19,15 @@ fun TableOfContents() = UI {
 
     div(padWithWhitespace) {
         +div(limitWidth) {
-            +h1 { +"Personal Math Wiki" }
-            +hr()
-            +Functions()
-            +hr()
-            +Limits()
-            +hr()
-            +EvenNumbers()
-            +hr()
-            +OddNumbers()
-            +hr()
-            +EulersConstant()
-            +hr()
-            +LinearEquations()
+            +"Hello World"
+            +WikiSection("Personal Math Wiki") {
+                +EulersConstant()
+                +EvenNumbers()
+                +Functions()
+                +Limits()
+                +LinearEquations()
+                +OddNumbers()
+            }
         }
     }
 }

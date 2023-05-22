@@ -4,5 +4,5 @@ import com.duncpro.webk.place
 import kotlinx.browser.document
 
 fun main() {
-    place(TableOfContents(), within = document.getElementById("root")!!)
+    place(Home(), within = document.getElementById("root")!!)
 }

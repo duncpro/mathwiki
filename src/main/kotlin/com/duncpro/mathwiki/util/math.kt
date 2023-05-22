@@ -1,4 +1,4 @@
-package com.duncpro.mathwiki
+package com.duncpro.mathwiki.util
 
 import kotlin.math.max
 import kotlin.math.min

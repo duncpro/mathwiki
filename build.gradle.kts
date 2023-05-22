@@ -1,5 +1,6 @@
 plugins {
     kotlin("js") version "1.8.21"
+    idea
 }
 
 group = "com.duncpro.mathwiki"
@@ -12,7 +13,7 @@ repositories {
 
 dependencies {
     implementation(npm("katex", "0.16.7"))
-    implementation("com.duncpro.webk:webk:1.11")
+    implementation("com.duncpro.webk:webk:1.20")
     testImplementation(kotlin("test"))
 }
 
@@ -28,5 +29,11 @@ kotlin {
                 }
             }
         }
+    }
+}
+
+idea {
+    module {
+        isDownloadSources = true
     }
 }
