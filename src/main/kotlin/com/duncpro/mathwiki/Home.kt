@@ -31,6 +31,7 @@ fun Home() = UI {
                 +Derivatives()
                 +Integrals()
                 +Inequalities()
+                +PythagoreanTheorem()
             }
         }
     }

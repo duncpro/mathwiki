@@ -1,12 +1,10 @@
 package com.duncpro.mathwiki.topics
 
-import com.duncpro.mathwiki.banner
 import com.duncpro.mathwiki.controls.DecimalSliderRange
 import com.duncpro.mathwiki.controls.Slider
 import com.duncpro.mathwiki.graphics.*
 import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.webk.*
-import org.w3c.dom.HTMLInputElement
 import kotlin.math.exp
 
 fun EulersConstant() = UI {
@@ -26,8 +24,8 @@ fun EulersConstant() = UI {
         +Graph2d(const(Graph2dFormat(
             _fns = const(listOf(
                 Graph2dFunction(fn = { x -> exp(x) }),
-                Graph2dFunction(fn = { x -> exp(x1) * (x - x1) + exp(x1) }, color = "blue")
-            )),
+                Graph2dFunction(fn = { x -> exp(x1) * (x - x1) + exp(x1) }, color = "blue"),
+            ))
         )))
         +Slider(
             label = Math("x_1"),

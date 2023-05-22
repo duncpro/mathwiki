@@ -20,14 +20,14 @@ class Graph2dFormat(
     val _fns: ReactiveRef<List<Graph2dFunction>> = const(emptyList()),
     val _precision: ReactiveRef<Double> = const(0.01),
     val _step: ReactiveRef<Double> = const(1.0),
-    val isUserScrollable: ReactiveRef<Boolean> = const(false),
+    val _isUserScrollable: ReactiveRef<Boolean> = const(false),
 )
 
 fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
     val fns by ref { _format.bind()._fns.bind() }
     val precision by ref { _format.bind()._precision.bind() }
     val step by ref { _format.bind()._step.bind() }
-    val isUserScrollable by ref { _format.bind().isUserScrollable.bind() }
+    val isUserScrollable by ref { _format.bind()._isUserScrollable.bind() }
 
     val `#canvas` = useStaticDOMHandle<HTMLCanvasElement>()
     val canvasElementDimensions by useResizeObserver(`#canvas`)
