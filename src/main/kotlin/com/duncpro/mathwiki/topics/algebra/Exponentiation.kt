@@ -7,7 +7,7 @@ import com.duncpro.webk.*
 
 fun Exponentiation() = WikiSection("Exponentiation") {
     +WikiSection("Definition") {
-        +MathBlock("x^y = 1 \\text { (} * x \\text{ [repeated } y \\text{ times ])}")
+        +MathBlock("x^y = 1 \\text { [} * x \\text{ [repeated } y \\text{ times ]]}")
         +p {
             +"Exponentiation is to multiplication what multiplication is to addition. "
             +"Put more simply, exponentiation is repeated multiplication."
@@ -19,8 +19,8 @@ fun Exponentiation() = WikiSection("Exponentiation") {
     +WikiSection("Product of Same-Base Exponentials") {
         +MathBlock("""
             x^a * x^b
-            = 1 \text { (} * x \text{ [repeated } a \text{ times ]) }
-            * 1 \text { (} * x \text{ [repeated } b \text{ times ])}
+            = 1 \text { [} * x \text{ [repeated } a \text{ times ]] }
+            * 1 \text { [} * x \text{ [repeated } b \text{ times ]]}
             = x^{a+b}
         """)
         +p {
