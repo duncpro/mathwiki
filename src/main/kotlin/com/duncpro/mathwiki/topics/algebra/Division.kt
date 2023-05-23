@@ -11,7 +11,7 @@ import org.w3c.dom.HTMLCanvasElement
 import kotlin.math.max
 
 fun Division() = WikiSection("Division") {
-    +WikiSection("Practical Definition") {
+    +WikiSection("Definition") {
         +MathBlock("""
             x \div y = x\space[-y\space[\text{ repeated }n\text{ times } ]]
         """)
