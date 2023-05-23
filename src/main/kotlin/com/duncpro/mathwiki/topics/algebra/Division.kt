@@ -27,8 +27,8 @@ fun Division() = WikiSection("Division") {
     }
     +WikiSection("Grouping Problems") {
         +p {
-            +"Division can be represented as a grouping problem. Given a pool of "; +Math("x"); +" elements, many groups of ";
-            +Math("y"); +" elements can be made?"
+            +"Division can be represented as a grouping problem. Given a pool of "; +Math("x"); +" elements, how ";
+            +"many groups of "; Math("y"); +" elements can be made?"
         }
         +GroupingDiagram()
     }
