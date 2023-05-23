@@ -1,4 +1,4 @@
-package com.duncpro.mathwiki.topics
+package com.duncpro.mathwiki.topics.numbers
 
 import com.duncpro.mathwiki.color
 import com.duncpro.mathwiki.graphics.MathBlock

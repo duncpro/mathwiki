@@ -1,5 +1,7 @@
-package com.duncpro.mathwiki.topics
+package com.duncpro.mathwiki.topics.numbers
 
+import com.duncpro.mathwiki.banner
+import com.duncpro.mathwiki.centerText
 import com.duncpro.mathwiki.controls.DecimalSliderRange
 import com.duncpro.mathwiki.controls.Slider
 import com.duncpro.mathwiki.graphics.*
@@ -12,6 +14,13 @@ fun EulersConstant() = UI {
 
     WikiSection("Euler's Constant") {
         +p {
+            +"Euler's constant is the number "; +Math("e"); + ". "
+            +"The slope of the line tangent to the curve "; +Math("f(x)=e^x"); +" at point "; +Math("(x, f(x))")
+            +" is "; +Math("m=f(x)"); +". In other words, the value of the function at any point is equal to its rate"
+            +" of change at that point.";
+        }
+
+        +div(banner, centerText) {
             +span(RCStyle(const(AnonymousCSSClass("color: red")))) {
                 +Math("f(x)=e^x")
             }

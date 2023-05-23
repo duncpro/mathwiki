@@ -1,4 +1,4 @@
-package com.duncpro.mathwiki.topics
+package com.duncpro.mathwiki.topics.calculus
 
 import com.duncpro.mathwiki.layout.WikiSection
 
