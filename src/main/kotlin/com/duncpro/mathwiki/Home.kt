@@ -35,6 +35,7 @@ fun Home() = UI {
                 +Parabolas()
                 +Inequalities()
                 +Trigonometry()
+                +EulersConstant()
             }
         }
     }

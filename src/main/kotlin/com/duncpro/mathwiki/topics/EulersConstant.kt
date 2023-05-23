@@ -1,4 +1,4 @@
-package com.duncpro.mathwiki.topics.numbers
+package com.duncpro.mathwiki.topics
 
 import com.duncpro.mathwiki.banner
 import com.duncpro.mathwiki.centerText

@@ -31,8 +31,8 @@ fun Exponentiation() = WikiSection("Exponentiation") {
     +WikiSection("Quotient of Same-Base Exponentials") {
         +MathBlock("""
             \frac{x^a}{x^b}
-            =1 \text { [} * x \text{ [repeated } a \text{ times ]] }
-            \text { [}\div x \text{ [repeated } b \text{ times ]] }
+            =1 \text { [} * x \text{ [ repeated } a \text{ times ]] }
+            \text { [}\div x \text{ [ repeated } b \text{ times ]] }
             = x^{a-b}
         """)
         +p {
@@ -44,6 +44,9 @@ fun Exponentiation() = WikiSection("Exponentiation") {
         }
     }
     +WikiSection("Composition") {
-        +MathBlock("(x^a)^b = x^{a * b}")
+        +MathBlock("""
+            (x^a)^b = 1 * \text { [ } 1 \text { [} * x \text{ [ repeated } a \text{ times ]] } \text { [ repeated } b \text{ times ]]}
+            = x^{a * b}
+        """)
     }
 }
