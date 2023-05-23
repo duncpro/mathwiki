@@ -8,8 +8,8 @@ import com.duncpro.webk.*
 fun Division() = WikiSection("Division") {
     +WikiSection("Practical Definition") {
         +MathBlock("""
-        x \div y = x\space[-y\space[\text{ repeated }n\text{ times } ]]
-    """)
+            x \div y = x\space[-y\space[\text{ repeated }n\text{ times } ]]
+        """)
         +p {
             +"Division is repeated subtraction. Or in a more abstract sense, finding the amount of times one number ";
             +Math("y"); +" fits inside another, "; +Math("x"); + "."
