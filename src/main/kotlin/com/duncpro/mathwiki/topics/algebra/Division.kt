@@ -15,12 +15,17 @@ fun Division() = WikiSection("Division") {
             +Math("y"); +" fits inside another, "; +Math("x"); + "."
         }
     }
-    +WikiSection("Grouping Problems") {
-        +"Division can be considered a grouping problem. How many groups, with "; +Math("y"); +" elements ";
-        +"in each group, can be made from a pool of "; +Math("x"); + " total elements?";
-    }
     +WikiSection("Sharing Problems") {
-        +"Division can be considered a sharing problem. For "; +Math("y"); +" groups, how many elements "
-        +"will be in each group, assuming a starting pool of "; +Math("x"); +" elements."
+        +"Division can be considered a sharing problem. Given "; +Math("y"); +" empty buckets, and ";
+        +"a starting pool of "; +Math("x"); +" elements... How many elements will end up in each bucket, "
+        +"assuming they are shared evenly?"
+    }
+    +WikiSection("Grouping Problems") {
+        +"Division can be considered a grouping problem. Given a pool of "; +Math("x"); +" elements, many groups of ";
+        +Math("y"); +" elements can be made?"
+    }
+    +WikiSection("Comparison") {
+        +"In "; +b { +"sharing" }; +" problems, "; +Math("y"); +" is the number of groups."
+        +"In "; +b { +"grouping" }; + " problems, "; +Math("y"); +" is the quantity of elements per group. ";
     }
 }
