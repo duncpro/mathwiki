@@ -5,8 +5,10 @@ import com.duncpro.mathwiki.topics.*
 import com.duncpro.mathwiki.topics.algebra.Algebra
 import com.duncpro.mathwiki.topics.algebra.Inequalities
 import com.duncpro.mathwiki.topics.calculus.Calculus
-import com.duncpro.mathwiki.topics.calculus.Integrals
 import com.duncpro.mathwiki.topics.numbers.Numbers
+import com.duncpro.mathwiki.topics.trigonometry.Circles
+import com.duncpro.mathwiki.topics.trigonometry.PythagoreanTheorem
+import com.duncpro.mathwiki.topics.trigonometry.Trigonometry
 import com.duncpro.webk.*
 
 fun Home() = UI {
@@ -30,10 +32,9 @@ fun Home() = UI {
                 +Functions()
                 +Calculus()
                 +LinearEquations()
-                +Circles()
                 +Parabolas()
                 +Inequalities()
-                +PythagoreanTheorem()
+                +Trigonometry()
             }
         }
     }

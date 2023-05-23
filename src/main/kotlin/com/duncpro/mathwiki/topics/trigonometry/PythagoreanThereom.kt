@@ -1,4 +1,4 @@
-package com.duncpro.mathwiki.topics
+package com.duncpro.mathwiki.topics.trigonometry
 
 import com.duncpro.mathwiki.graphics.MathBlock
 import com.duncpro.mathwiki.layout.WikiSection
