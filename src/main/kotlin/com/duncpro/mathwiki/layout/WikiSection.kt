@@ -64,7 +64,7 @@ fun WikiSection(title: String, children: Children) = UI {
 private fun WikiSectionIndexView(entries: UIList<WikiIndexEntry>) = UI {
     val `$style` = useStyleClass { AnonymousCSSClass("""
         max-height: 150px;
-        display: flex;
+        display: ${ if (entries.bind().isEmpty()) "none" else "flex" };
         flex-flow: wrap column;
     """) }
 

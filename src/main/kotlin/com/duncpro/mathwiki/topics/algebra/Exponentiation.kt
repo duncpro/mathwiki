@@ -29,7 +29,19 @@ fun Exponentiation() = WikiSection("Exponentiation") {
         }
     }
     +WikiSection("Quotient of Same-Base Exponentials") {
-        +MathBlock("\\frac{x^a}{x^b} = x^{a-b}")
+        +MathBlock("""
+            \frac{x^a}{x^b}
+            =\frac{1 \text { [} * x \text{ [repeated } a \text{ times ]] }}
+            {1 \text { [} * x \text{ [repeated } b \text{ times ]] }}
+            = x^{a-b}
+        """)
+        +p {
+            +"This identity follows from the premise that"; +b { +" division is the inverse of multiplication. " }
+            +"Each division by "; +Math("x"); +" removes exactly 1 multiple of "; +Math("x"); +" "
+            +"from the numerator. Therefore, "; +Math("b"); +" divisions by "; +Math("x"); +" "
+            +"remove exactly "; +Math("b"); +" multiples of "; +Math("x"); +" from the numerator. "
+            +"Hence, "; +Math("a - b"); +" multiples remain."
+        }
     }
     +WikiSection("Composition") {
         +MathBlock("(x^a)^b = x^{a * b}")
