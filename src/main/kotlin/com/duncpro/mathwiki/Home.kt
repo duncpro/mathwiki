@@ -6,6 +6,7 @@ import com.duncpro.mathwiki.topics.algebra.Algebra
 import com.duncpro.mathwiki.topics.algebra.Inequalities
 import com.duncpro.mathwiki.topics.calculus.Calculus
 import com.duncpro.mathwiki.topics.numbers.Numbers
+import com.duncpro.mathwiki.topics.projection.Projection
 import com.duncpro.mathwiki.topics.trigonometry.Circles
 import com.duncpro.mathwiki.topics.trigonometry.PythagoreanTheorem
 import com.duncpro.mathwiki.topics.trigonometry.Trigonometry
@@ -30,6 +31,7 @@ fun Home() = UI {
                 +Numbers()
                 +Algebra()
                 +Functions()
+                +Projection()
                 +Calculus()
                 +LinearEquations()
                 +Parabolas()
