@@ -11,7 +11,11 @@ fun DecimalSliderRange(min: Double, max: Double, step: Double): SliderRange<Doub
 fun <T> Slider(_range: ReactiveRef<SliderRange<T>>, _value: ReactiveRef<T>, onSlide: UnrefScope.(T) -> Unit,
                label: UIComponent? = null) = UI {
 
-    val `$container` = useStyleClass(const(AnonymousCSSClass("display: flex")))
+    val `$container` = useStyleClass(const(AnonymousCSSClass("""
+        display: flex;
+        padding: 5px;
+    """)))
+
     val range by _range
     val value by _value
 

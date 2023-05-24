@@ -16,6 +16,10 @@ class Graph3dFormat(
     val _precision: ReactiveRef<Double> = const(0.5),
 )
 
+// TODO: Implement useSuspendEffect in webk using Kotlin Coroutines so expensive rendering
+//  can be interrupted (and restarted), whenever a reactive dependency changes. Right now,
+//  renders cannot be cancelled.
+
 fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dFormat())) = UI {
     val fns by ref { _format.bind()._fns.bind() }
     val precision by ref { _format.bind()._precision.bind() }
@@ -45,7 +49,7 @@ fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dF
             // Specifically, set 1 unit of interior canvas distance equal to 4 units of interior space distance.
             val spaceX = (-1 * canvasY * 4)
             val spaceY = (-1 * canvasY) - canvasX
-            return Pair(spaceX * -1, spaceY)
+            return Pair(spaceX * -1, spaceY * -1)
         }
 
         fun BindScope.mapPixelCoordinateTo3Space(pixelX: Double, pixelY: Double): Pair<Double, Double> {
