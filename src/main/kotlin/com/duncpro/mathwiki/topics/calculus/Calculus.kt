@@ -6,4 +6,5 @@ fun Calculus() = WikiSection("Calculus") {
     +Limits()
     +Derivatives()
     +Integrals()
+    +Spheres()
 }
