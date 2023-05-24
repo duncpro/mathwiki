@@ -40,13 +40,12 @@ fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dF
         val horizontalMidpoint = (canvasElementWidth / 2)
         val verticalMidpoint = (canvasElementHeight / 2)
 
-        fun BindScope.mapInfiniteCanvasPlaneCoordinateTo3Space(canvasX: Double, canvasY: Double): Pair<Double, Double> {
+        fun BindScope.map2dPlaneCoordinateTo3Space(canvasX: Double, canvasY: Double): Pair<Double, Double> {
             // Multiply by 4 to shorten the interior dimensions (x dimension).
             // Specifically, set 1 unit of interior canvas distance equal to 4 units of interior space distance.
             val spaceX = (-1 * canvasY * 4)
             val spaceY = (-1 * canvasY) - canvasX
-
-            return Pair(spaceX, spaceY)
+            return Pair(spaceX * -1, spaceY)
         }
 
         fun BindScope.mapPixelCoordinateTo3Space(pixelX: Double, pixelY: Double): Pair<Double, Double> {
@@ -54,7 +53,7 @@ fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dF
             if (pixelY !in 0.0..canvasElementHeight) throw IllegalArgumentException()
             val canvasX = pixelX - horizontalMidpoint // Assume center of canvas is origin
             val canvasY = pixelY - verticalMidpoint // Assume center of canvas is origin
-            return mapInfiniteCanvasPlaneCoordinateTo3Space(canvasX, canvasY)
+            return map2dPlaneCoordinateTo3Space(canvasX, canvasY)
         }
 
         // Draw Vertical-Axis
