@@ -15,12 +15,14 @@ private const val SECONDARY_AXIS_LINE_WIDTH = 1.0
 private const val AXIS_LABEL_OFFSET = PRIMARY_AXIS_LINE_WIDTH * 2
 
 class Graph2dFunction(val fn: BindScope.(Double) -> Double, val color: String = "red")
+class Graph2dLineSegment(val x1: Double, val y1: Double, val x2: Double, val y2: Double, val color: String = "red")
 
 class Graph2dFormat(
     val _fns: ReactiveRef<List<Graph2dFunction>> = const(emptyList()),
     val _precision: ReactiveRef<Double> = const(0.01),
     val _step: ReactiveRef<Double> = const(1.0),
     val _isUserScrollable: ReactiveRef<Boolean> = const(false),
+    val _lineSegments: ReactiveRef<List<Graph2dLineSegment>> = const(emptyList())
 )
 
 fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
@@ -28,6 +30,7 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
     val precision by ref { _format.bind()._precision.bind() }
     val step by ref { _format.bind()._step.bind() }
     val isUserScrollable by ref { _format.bind()._isUserScrollable.bind() }
+    val lineSegments by ref { _format.bind()._lineSegments.bind() }
 
     val `#canvas` = useStaticDOMHandle<HTMLCanvasElement>()
     val canvasElementDimensions by useResizeObserver(`#canvas`)
@@ -89,7 +92,6 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
         val minY = (verticalOffset * -1) / GRID_LINE_INTERVAL * step
         val maxY = ((verticalOffset * -1) + canvasElementHeight) / GRID_LINE_INTERVAL * step
 
-
         val isPrimaryHorizontalAxisVisible = 0.0 in minY..maxY
         val isPrimaryVerticalAxisVisible = 0.0 in minX..maxX
 
@@ -127,6 +129,19 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
                 }
                 x += precision
             }
+        }
+
+        for (lineSegment in lineSegments) {
+            val p1X = (lineSegment.x1 - minX) / step * GRID_LINE_INTERVAL
+            val p1Y = ((lineSegment.y1 * -1) - minY) / step * GRID_LINE_INTERVAL
+            val p2x = (lineSegment.x2 - minX) / step * GRID_LINE_INTERVAL
+            val p2y = ((lineSegment.y2 * -1) - minY) / step * GRID_LINE_INTERVAL
+            canvasContext.strokeStyle = lineSegment.color
+            canvasContext.lineWidth = PIXEL_SIZE
+            canvasContext.beginPath()
+            canvasContext.moveTo(p1X, p1Y)
+            canvasContext.lineTo(p2x, p2y)
+            canvasContext.stroke()
         }
 
         // Label Primary Vertical Axis
