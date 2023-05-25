@@ -10,16 +10,29 @@ import com.duncpro.webk.*
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-fun Spheres() = UI {
-    WikiSection("Spheres") {
-
+fun CatalogOfShapes() = WikiSection("Catalog of Shapes") {
+    +WikiSection("Cylinders") {
+        +PrimaryFigure {
+            +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
+                +CabinetProjected3DGraph(const(Graph3dFormat(
+                    _precision = const(1.0),
+                    _fns = const(listOf(
+//                        Graph3dFunction(
+//                            fn = { x, y -> 1.0 }
+//                        ),
+                    ))
+                )))
+            }
+        }
+    }
+    +WikiSection("Spheres") {
         +WikiSection("Standard Form") {
             +MathBlock("r^2=x^2+y^2+z^2")
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
                     +CabinetProjected3DGraph(const(Graph3dFormat(
-                        _precision = const(0.4),
+                        _precision = const(0.15),
                         _fns = const(listOf(
                             Graph3dFunction(
                                 fn = { x, y -> sqrt(50.0.pow(2) - x.pow(2) - y.pow(2)) }
@@ -43,7 +56,7 @@ fun Spheres() = UI {
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
                     +CabinetProjected3DGraph(const(Graph3dFormat(
-                        _precision = const(0.4),
+                        _precision = const(0.15),
                         _fns = const(listOf(
                             Graph3dFunction(
                                 fn = { x, y -> sqrt(50.0.pow(2) - (x - x1).pow(2) - (y - y1).pow(2)) + z1 }
