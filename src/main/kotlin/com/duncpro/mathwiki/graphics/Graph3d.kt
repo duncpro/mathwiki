@@ -14,6 +14,7 @@ class Graph3dFunction(val fn: BindScope.(Double, Double) -> Double, val color: S
 class Graph3dFormat(
     val _fns: ReactiveRef<List<Graph3dFunction>> = const(emptyList()),
     val _precision: ReactiveRef<Double> = const(0.5),
+    val _scale: ReactiveRef<Double> = const(50.0) /* CSS Pixel Per Unit Space */
 )
 
 // TODO: Implement useSuspendEffect in webk using Kotlin Coroutines so expensive rendering
@@ -23,6 +24,7 @@ class Graph3dFormat(
 fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dFormat())) = UI {
     val fns by ref { _format.bind()._fns.bind() }
     val precision by ref { _format.bind()._precision.bind() }
+    val scale by ref { _format.bind()._scale.bind() }
 
     val `#canvas` = useStaticDOMHandle<HTMLCanvasElement>()
     val canvasElementDimensions by useResizeObserver(`#canvas`)
@@ -47,8 +49,8 @@ fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dF
         fun BindScope.map2dPlaneCoordinateTo3Space(canvasX: Double, canvasY: Double): Pair<Double, Double> {
             // Multiply by 4 to shorten the interior dimensions (x dimension).
             // Specifically, set 1 unit of interior canvas distance equal to 4 units of interior space distance.
-            val spaceX = (-1 * canvasY * 4)
-            val spaceY = (-1 * canvasY) - canvasX
+            val spaceX = (-1 * canvasY * 4) / scale
+            val spaceY = ((-1 * canvasY) - canvasX) / scale
             return Pair(spaceX * -1, spaceY * -1)
         }
 
@@ -91,7 +93,7 @@ fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dF
                 while (pixelY < canvasElementHeight) {
                     val (spaceX, spaceY) = mapPixelCoordinateTo3Space(pixelX, pixelY)
                     val spaceZ = fn.fn(this, spaceX, spaceY)
-                    val finalPixelY = pixelY - spaceZ
+                    val finalPixelY = pixelY - (spaceZ * scale)
                     if (finalPixelY in 0.0..canvasElementHeight) {
                         canvasContext.fillStyle = fn.color
                         canvasContext.fillRect(pixelX, finalPixelY, precision, precision)

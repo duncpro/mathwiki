@@ -15,8 +15,8 @@ repositories {
 dependencies {
     implementation(npm("katex", "0.16.7"))
     testImplementation(kotlin("test"))
-    implementation("com.duncpro.webk:webk:1.29")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+    implementation("com.duncpro.webk:webk:1.29")
 }
 
 kotlin {

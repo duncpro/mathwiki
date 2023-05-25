@@ -10,35 +10,37 @@ import com.duncpro.webk.*
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-fun CatalogOfShapes() = WikiSection("Catalog of Shapes") {
-    +WikiSection("Cylinders") {
+fun CatalogOfShapes() = WikiSection("Catalog of Surfaces") {
+    +WikiSection("Paraboloid") {
+        +MathBlock("x^2+y^2=z")
+        +br()
         +PrimaryFigure {
             +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
                 +CabinetProjected3DGraph(const(Graph3dFormat(
-                    _precision = const(1.0),
+                    _precision = const(0.5),
                     _fns = const(listOf(
-//                        Graph3dFunction(
-//                            fn = { x, y -> 1.0 }
-//                        ),
+                        Graph3dFunction(
+                            fn = { x, y ->  (x.pow(2) + y.pow(2)) }
+                        ),
                     ))
                 )))
             }
         }
     }
-    +WikiSection("Spheres") {
+    +WikiSection("Sphere") {
         +WikiSection("Standard Form") {
             +MathBlock("r^2=x^2+y^2+z^2")
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
                     +CabinetProjected3DGraph(const(Graph3dFormat(
-                        _precision = const(0.15),
+                        _precision = const(0.5),
                         _fns = const(listOf(
                             Graph3dFunction(
-                                fn = { x, y -> sqrt(50.0.pow(2) - x.pow(2) - y.pow(2)) }
+                                fn = { x, y -> sqrt(1 - x.pow(2) - y.pow(2)) }
                             ),
                             Graph3dFunction(
-                                fn = { x, y -> - sqrt(50.0.pow(2) - x.pow(2) - y.pow(2)) }
+                                fn = { x, y -> - sqrt(1 - x.pow(2) - y.pow(2)) }
                             )
                         ))
                     )))
@@ -56,13 +58,13 @@ fun CatalogOfShapes() = WikiSection("Catalog of Shapes") {
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
                     +CabinetProjected3DGraph(const(Graph3dFormat(
-                        _precision = const(0.15),
+                        _precision = const(0.5),
                         _fns = const(listOf(
                             Graph3dFunction(
-                                fn = { x, y -> sqrt(50.0.pow(2) - (x - x1).pow(2) - (y - y1).pow(2)) + z1 }
+                                fn = { x, y -> sqrt(1.0.pow(2) - (x - x1).pow(2) - (y - y1).pow(2)) + z1 }
                             ),
                             Graph3dFunction(
-                                fn = { x, y -> - sqrt(50.0.pow(2) - (x - x1).pow(2) - (y - y1).pow(2)) + z1 }
+                                fn = { x, y -> - sqrt(1.0.pow(2) - (x - x1).pow(2) - (y - y1).pow(2)) + z1 }
                             )
                         ))
                     )))
@@ -70,19 +72,19 @@ fun CatalogOfShapes() = WikiSection("Catalog of Shapes") {
             }
             +div(RCStyle(const(AnonymousCSSClass("display: flex;")))) {
                 +Slider(
-                    _range = const(DecimalSliderRange(-200.0, 200.0, 1.0)),
+                    _range = const(DecimalSliderRange(-2.0, 2.0, 0.05)),
                     _value = ref { x1 },
                     onSlide = { x1 = it },
                     label = Math("x_1")
                 )
                 +Slider(
-                    _range = const(DecimalSliderRange(-200.0, 200.0, 1.0)),
+                    _range = const(DecimalSliderRange(-2.0, 2.0, 0.05)),
                     _value = ref { y1 },
                     onSlide = { y1 = it },
                     label = Math("y_1")
                 )
                 +Slider(
-                    _range = const(DecimalSliderRange(-200.0, 200.0, 1.0)),
+                    _range = const(DecimalSliderRange(-2.0, 2.0, 0.05)),
                     _value = ref { z1 },
                     onSlide = { z1 = it },
                     label = Math("z_1")
