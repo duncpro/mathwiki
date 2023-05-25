@@ -10,23 +10,74 @@ import com.duncpro.webk.*
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-fun CatalogOfShapes() = WikiSection("Catalog of Surfaces") {
+fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
     +WikiSection("Paraboloid") {
-        +MathBlock("x^2+y^2=z")
-        +br()
-        +PrimaryFigure {
-            +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                +CabinetProjected3DGraph(const(Graph3dFormat(
-                    _precision = const(0.5),
-                    _fns = const(listOf(
-                        Graph3dFunction(
-                            fn = { x, y ->  (x.pow(2) + y.pow(2)) }
-                        ),
-                    ))
-                )))
+        +WikiSection("Standard Form") {
+            +MathBlock("x^2+y^2=z")
+            +br()
+            +PrimaryFigure {
+                +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
+                    +CabinetProjected3DGraph(const(Graph3dFormat(
+                        _precision = const(0.5),
+                        _fns = const(listOf(
+                            Graph3dFunction(
+                                fn = { x, y ->  (x.pow(2) + y.pow(2)) }
+                            ),
+                        ))
+                    )))
+                }
             }
         }
+       +WikiSection("Offset from Origin") {
+           var z1 by ReactiveProperty(0.0)
+           +MathBlock("x^2+y^2=z-z_1")
+           +br()
+           +PrimaryFigure {
+               +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
+                   +CabinetProjected3DGraph(const(Graph3dFormat(
+                       _precision = const(0.5),
+                       _fns = const(listOf(
+                           Graph3dFunction(
+                               fn = { x, y ->  (x.pow(2) + y.pow(2)) + z1 }
+                           ),
+                       ))
+                   )))
+               }
+           }
+           +Slider(
+               _range = const(DecimalSliderRange(-2.0, 2.0, 0.05)),
+               _value = ref { z1 },
+               onSlide = { z1 = it },
+               label = Math("z_1")
+           )
+       }
+        +WikiSection("Reflected About XY-Plane") {
+            +MathBlock("-x^2-y^2=z")
+            +br()
+            +PrimaryFigure {
+                +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
+                    +CabinetProjected3DGraph(const(Graph3dFormat(
+                        _precision = const(0.5),
+                        _fns = const(listOf(
+                            Graph3dFunction(
+                                fn = { x, y ->  (-1 * x.pow(2) - y.pow(2)) }
+                            ),
+                        ))
+                    )))
+                }
+            }
+            +br()
+            +MathBlock("""
+                \begin{gather}
+                -x^2-y^2=z \\
+                \implies -1(x^2 + y^2) = z \\
+                \implies x^2 + y^2 = \frac{z}{-1} \\
+                \implies x^2 + y^2 = -z 
+                \end{gather}
+            """)
+        }
     }
+
     +WikiSection("Sphere") {
         +WikiSection("Standard Form") {
             +MathBlock("r^2=x^2+y^2+z^2")
