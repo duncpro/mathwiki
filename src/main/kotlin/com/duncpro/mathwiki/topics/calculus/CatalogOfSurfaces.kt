@@ -17,7 +17,7 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjected3DGraph(const(Graph3dFormat(
+                    +CabinetProjected3dGraph(const(Graph3dFormat(
                         _precision = const(0.5),
                         _fns = const(listOf(
                             Graph3dFunction(
@@ -34,7 +34,7 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
            +br()
            +PrimaryFigure {
                +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                   +CabinetProjected3DGraph(const(Graph3dFormat(
+                   +CabinetProjected3dGraph(const(Graph3dFormat(
                        _precision = const(0.5),
                        _fns = const(listOf(
                            Graph3dFunction(
@@ -56,7 +56,7 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjected3DGraph(const(Graph3dFormat(
+                    +CabinetProjected3dGraph(const(Graph3dFormat(
                         _precision = const(0.5),
                         _fns = const(listOf(
                             Graph3dFunction(
@@ -84,7 +84,7 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjected3DGraph(const(Graph3dFormat(
+                    +CabinetProjected3dGraph(const(Graph3dFormat(
                         _precision = const(0.5),
                         _fns = const(listOf(
                             Graph3dFunction(
@@ -108,7 +108,7 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjected3DGraph(const(Graph3dFormat(
+                    +CabinetProjected3dGraph(const(Graph3dFormat(
                         _precision = const(0.5),
                         _fns = const(listOf(
                             Graph3dFunction(

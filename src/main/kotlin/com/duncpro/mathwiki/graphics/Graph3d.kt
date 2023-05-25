@@ -21,7 +21,7 @@ class Graph3dFormat(
 //  can be interrupted (and restarted), whenever a reactive dependency changes. Right now,
 //  renders cannot be cancelled.
 
-fun CabinetProjected3DGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dFormat())) = UI {
+fun CabinetProjected3dGraph(_format: ReactiveRef<Graph3dFormat> = const(Graph3dFormat())) = UI {
     val fns by ref { _format.bind()._fns.bind() }
     val precision by ref { _format.bind()._precision.bind() }
     val scale by ref { _format.bind()._scale.bind() }

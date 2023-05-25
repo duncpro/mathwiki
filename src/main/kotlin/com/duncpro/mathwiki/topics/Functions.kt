@@ -96,6 +96,22 @@ fun Functions() = WikiSection("Functions") {
                 +li { +"An axis for the second parameter, typically denoted "; +Math("y"); +"." }
                 +li { +"An axis for the function's value, typically denoted "; +Math("z"); +"." }
             }
+            +p {
+                +"A two-dimensional function "; +Math("f(x)"); +" represents one level-surface in the family of ";
+                +" level-surfaces represented by the three-dimensional function "; +Math("g(x,y)");
+                +". Specifically, "; +Math("g(x, y)=f(x) - y"); +"."
+            }
+            +CabinetProjected3dGraph(const(Graph3dFormat(
+                _precision = const(0.20),
+                _fns = const(listOf(
+                    Graph3dFunction(
+                        fn = { x, y -> 0 + sqrt(1.0 - x.pow(2)) - y },
+                    ),
+                    Graph3dFunction(
+                        fn = { x, y -> 0 - sqrt(1.0 - x.pow(2)) - y },
+                    )
+                ))
+            )))
         }
     }
 }
