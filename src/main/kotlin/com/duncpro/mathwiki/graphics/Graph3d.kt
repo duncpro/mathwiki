@@ -7,6 +7,7 @@ import com.duncpro.webk.*
 import kotlinx.browser.window
 import org.w3c.dom.CanvasRenderingContext2D
 import org.w3c.dom.HTMLCanvasElement
+import kotlin.math.min
 
 private const val PRIMARY_AXIS_LINE_WIDTH = 2.5
 private const val AXIS_COLOR: String = "lightgray"
@@ -87,9 +88,13 @@ fun CabinetProjectedGraph3d(_format: ReactiveRef<Graph3dFormat> = const(Graph3dF
         canvasContext.beginPath()
         canvasContext.strokeStyle = AXIS_COLOR
         canvasContext.lineWidth = PRIMARY_AXIS_LINE_WIDTH
-        canvasContext.moveTo(0.0, canvasElementHeight)
-        canvasContext.lineTo(canvasElementWidth, 0.0)
-        canvasContext.stroke()
+        run {
+            val horizontalOffset = min(canvasElementWidth - canvasElementHeight, 0.0) / 2
+            val verticalOffset = min(canvasElementHeight - canvasElementWidth, 0.0) / 2
+            canvasContext.moveTo(0.0 + horizontalOffset, canvasElementHeight - verticalOffset)
+            canvasContext.lineTo(canvasElementWidth - horizontalOffset, 0.0 + verticalOffset)
+            canvasContext.stroke()
+        }
 
         for (fn in fns) {
             var pixelX = 0.0

@@ -135,6 +135,21 @@ fun Functions() = WikiSection("Functions") {
                 +"decreases and the point appears lower in space. Conversely, as "; +Math("y"); +" decreases, ";
                 +"the "; +Math("z"); +" increases and the point appears higher in space."
             }
+            +p {
+                +"The following graph depicts a parabola which has been extended into the third dimension. "
+            }
+            +MathBlock("z=f(x,y)=y^2")
+            +br()
+            +CabinetProjectedGraph3d(const(Graph3dFormat(
+                _fns = const(listOf(
+                    Graph3dFunction(fn = { x, y -> y.pow(2) })
+                ))
+            )))
+            +p {
+                +"The function is defined for all values of "; +Math("x"); +". The altitude of each point "; +Math("z");
+                +" increases as the absolute value of "; +Math("y"); +" increases."
+                +" (The distance from the "; +Math("x"); +"-axis on the "; +Math("xy"); +"-plane)";
+            }
         }
         +WikiSection("Four Dimensional Functions") {
             +p {
