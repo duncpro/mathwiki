@@ -1,6 +1,8 @@
 package com.duncpro.mathwiki.graphics
 
+import com.duncpro.mathwiki.util.useFirstAppearance
 import com.duncpro.mathwiki.util.useResizeObserver
+import com.duncpro.mathwiki.util.useVisibility
 import com.duncpro.webk.*
 import kotlinx.browser.window
 import org.w3c.dom.CanvasRenderingContext2D
@@ -32,8 +34,11 @@ fun CabinetProjectedGraph3d(_format: ReactiveRef<Graph3dFormat> = const(Graph3dF
         height: 100%;
         width: 100%;
     """) }
+    val hasAppeared by useFirstAppearance(`#canvas`)
+
 
     useRenderEffect {
+        if (!hasAppeared) return@useRenderEffect
         val (canvasElementWidth, canvasElementHeight) =
             canvasElementDimensions?.let { it.width to it.height } ?: return@useRenderEffect
         val canvasNode = `#canvas`.unwrap()

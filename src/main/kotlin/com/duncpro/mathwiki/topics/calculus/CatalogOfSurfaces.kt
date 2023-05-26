@@ -78,6 +78,22 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
         }
     }
 
+    +WikiSection("Hyperbolic Paraboloid") {
+        +MathBlock("z = -x^2 + y^2")
+        +br()
+        +PrimaryFigure {
+            +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
+                +CabinetProjectedGraph3d(const(Graph3dFormat(
+                    _fns = const(listOf(
+                        Graph3dFunction(fn = { x, y ->
+                            (-1 * x.pow(2)) + y.pow(2)
+                        })
+                    ))
+                )))
+            }
+        }
+    }
+
     +WikiSection("Sphere") {
         +WikiSection("Standard Form") {
             +MathBlock("r^2=x^2+y^2+z^2")
