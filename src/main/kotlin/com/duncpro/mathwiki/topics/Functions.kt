@@ -1,6 +1,16 @@
 package com.duncpro.mathwiki.topics
 
-import com.duncpro.mathwiki.graphics.*
+import com.duncpro.mathwiki.graphics.CabinetProjectedGraph3d
+import com.duncpro.mathwiki.graphics.Graph2d
+import com.duncpro.mathwiki.graphics.Graph2dFormat
+import com.duncpro.mathwiki.graphics.Graph2dFunction
+import com.duncpro.mathwiki.graphics.Graph3dFormat
+import com.duncpro.mathwiki.graphics.Graph3dFunction
+import com.duncpro.mathwiki.graphics.Math
+import com.duncpro.mathwiki.graphics.MathBlock
+import com.duncpro.mathwiki.graphics.Numberline
+import com.duncpro.mathwiki.graphics.NumberlineFormat
+import com.duncpro.mathwiki.graphics.NumberlinePointStyle
 import com.duncpro.mathwiki.layout.PrimaryFigure
 import com.duncpro.webk.*
 import com.duncpro.mathwiki.layout.WikiSection
@@ -52,7 +62,7 @@ fun Functions() = WikiSection("Functions") {
             }
             +MathBlock("f(x) = 0")
             +Numberline(const(NumberlineFormat(
-                _pointStyle = const { n -> NumberlinePointStyle(color = if (n == 0) "red" else null )}
+                _pointStyle = const { n -> NumberlinePointStyle(color = if (n == 0) "red" else null ) }
             )))
         }
         +WikiSection("Two Dimensional Functions") {
@@ -75,7 +85,8 @@ fun Functions() = WikiSection("Functions") {
                                 fn = { x -> 0 - sqrt(1.0 - x.pow(2)) },
                             )
                         )),
-                    )))
+                    )
+                    ))
                 }
             }
         }
@@ -107,13 +118,35 @@ fun Functions() = WikiSection("Functions") {
                         fn = { x, y -> 0 - sqrt(1.0 - x.pow(2)) - y },
                     )
                 ))
-            )))
+            )
+            ))
             +p {
                 +"When graphing a three-dimensional function, both parameters, "; +Math("x"); +", and "; +Math("y");
-                +" are free. In other words, every possible combination of parameters is depicted. In this way, the ";
+                +", are free. In other words, every possible combination of parameters is depicted. In this way, the ";
                 +"graph of a three-dimensional function is a representation of that function's solutions over some ";
-                +"interval."
+                +"interval.";
             }
+            +p {
+                +"The graph presented above is an infinite stack of circles, where the "; +Math("z"); +"-position"
+                +" (altitude) of each circle is determined by the value of the free "; +Math("y"); +" parameter."
+                +" For instance, when the free "; +Math("y"); +" parameter is assigned value zero, then the altitude ";
+                +"of that point ("; +Math("z"); +") is simply equal to the value of the two-dimensional function ";
+                +Math("f(x)"); +Math("."); +" As the free "; +Math("y"); +" increases the "; +Math("z"); +" "
+                +"decreases and the point appears lower in space. Conversely, as "; +Math("y"); +" decreases, ";
+                +"the "; +Math("z"); +" increases and the point appears higher in space."
+            }
+        }
+        +WikiSection("Four Dimensional Functions") {
+            +p {
+                +"Four dimensional functions have 3 parameters, therefore four axis are needed. Specifically: "
+                +Math("x, y, z"); +" and "; +Math("t"); + "."
+                +" Since the fourth axis cannot be depicted as an offset in three-dimensional space, another visualization";
+                +" technique must be used instead."; +" For instance, the fourth dimension could be depicted by ";
+                +" an animated three-dimensional graph, or three-dimensional graph where the color of each point represents";
+                +" the value of the fourth dimension."
+            }
+            var t by ReactiveProperty(0.0)
+
         }
     }
 }

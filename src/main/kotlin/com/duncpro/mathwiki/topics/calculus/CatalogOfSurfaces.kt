@@ -11,7 +11,7 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
-    +WikiSection("Paraboloid") {
+    +WikiSection("Elliptic Paraboloid") {
         +WikiSection("Standard Form") {
             +MathBlock("x^2+y^2=z")
             +br()
