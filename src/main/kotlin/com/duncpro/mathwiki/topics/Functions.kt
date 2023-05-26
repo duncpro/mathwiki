@@ -61,14 +61,6 @@ fun Functions() = WikiSection("Functions") {
                 +"plane. The horizontal axis, denoted by "; +Math("x"); +", represents the value of the parameter. "
                 +"The vertical axis, denoted by "; +Math("y"); +", represents the value of the function."
             }
-            +p {
-                +"A graph of "; +Math("f(x)"); +" over the interval "; +Math("a < x < b"); +" associates ";
-                +"each value "; +Math("x"); +" with at most one value "; +Math("f(x)"); +".";
-                +" Assuming that the function is continuous over the interval, the size of the domain can be considered ";
-                +"equal to "; +Math("b - a"); +"."; +" The product of "; +Math("b - a"); +" and the difference ";
-                +"between the maximum codomain value and the minimum codomain value is equal to the area required to "
-                +"graph the function over that interval."
-            }
             +MathBlock("f(x)=\\pm \\sqrt{1-x^2}")
             +br()
             +PrimaryFigure {
@@ -101,7 +93,11 @@ fun Functions() = WikiSection("Functions") {
                 +" level-surfaces represented by the three-dimensional function "; +Math("g(x,y)");
                 +". Specifically, "; +Math("g(x, y)=f(x) - y"); +"."
             }
-            +CabinetProjected3dGraph(const(Graph3dFormat(
+            +MathBlock("""
+                g(x, y) = \pm \sqrt{1-x^2} - y
+            """)
+            +br()
+            +CabinetProjectedGraph3d(const(Graph3dFormat(
                 _precision = const(0.20),
                 _fns = const(listOf(
                     Graph3dFunction(
@@ -112,6 +108,12 @@ fun Functions() = WikiSection("Functions") {
                     )
                 ))
             )))
+            +p {
+                +"When graphing a three-dimensional function, both parameters, "; +Math("x"); +", and "; +Math("y");
+                +" are free. In other words, every possible combination of parameters is depicted. In this way, the ";
+                +"graph of a three-dimensional function is a representation of that function's solutions over some ";
+                +"interval."
+            }
         }
     }
 }
