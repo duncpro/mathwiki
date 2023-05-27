@@ -48,11 +48,11 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
         event.preventDefault()
     }
 
-    useRenderEffect {
+    useAsyncEffect {
         val canvasNode = `#canvas`.unwrap()
         val canvasContext = canvasNode.getContext("2d") as CanvasRenderingContext2D
         val (canvasElementWidth, canvasElementHeight) = canvasElementDimensions?.let { Pair(it.width, it.height) }
-            ?: return@useRenderEffect
+            ?: return@useAsyncEffect
         canvasNode.width = (canvasElementWidth * window.devicePixelRatio).toInt()
         canvasNode.height = (canvasElementHeight * window.devicePixelRatio).toInt()
         canvasContext.scale(window.devicePixelRatio, window.devicePixelRatio)
