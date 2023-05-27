@@ -17,13 +17,13 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjectedGraph3d(const(Graph3dFormat(
-                        _precision = const(0.5),
-                        _fns = const(listOf(
+                    +CabinetProjectedGraph3d(const(Graph3dProperties(
+                        precision = 0.5,
+                        fns = listOf(
                             Graph3dFunction(
                                 fn = { x, y ->  (x.pow(2) + y.pow(2)) }
                             ),
-                        ))
+                        )
                     )))
                 }
             }
@@ -34,13 +34,13 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
            +br()
            +PrimaryFigure {
                +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                   +CabinetProjectedGraph3d(const(Graph3dFormat(
-                       _precision = const(0.5),
-                       _fns = const(listOf(
+                   +CabinetProjectedGraph3d(const(Graph3dProperties(
+                       precision = 0.5,
+                       fns = listOf(
                            Graph3dFunction(
                                fn = { x, y ->  (x.pow(2) + y.pow(2)) + z1 }
                            ),
-                       ))
+                       )
                    )))
                }
            }
@@ -56,14 +56,14 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjectedGraph3d(const(Graph3dFormat(
-                        _precision = const(0.5),
-                        _fns = const(listOf(
+                    +CabinetProjectedGraph3d(const(Graph3dProperties(
+                        precision = 0.5,
+                        fns = listOf(
                             Graph3dFunction(
                                 fn = { x, y ->  (-1 * x.pow(2) - y.pow(2)) }
                             ),
                         ))
-                    )))
+                    ))
                 }
             }
             +br()
@@ -83,13 +83,13 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
         +br()
         +PrimaryFigure {
             +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                +CabinetProjectedGraph3d(const(Graph3dFormat(
-                    _fns = const(listOf(
+                +CabinetProjectedGraph3d(const(Graph3dProperties(
+                    fns = listOf(
                         Graph3dFunction(fn = { x, y ->
                             (-1 * x.pow(2)) + y.pow(2)
                         })
                     ))
-                )))
+                ))
             }
         }
     }
@@ -100,9 +100,9 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjectedGraph3d(const(Graph3dFormat(
-                        _precision = const(0.5),
-                        _fns = const(listOf(
+                    +CabinetProjectedGraph3d(const(Graph3dProperties(
+                        precision = 0.5,
+                        fns = listOf(
                             Graph3dFunction(
                                 fn = { x, y -> sqrt(1 - x.pow(2) - y.pow(2)) }
                             ),
@@ -110,7 +110,7 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
                                 fn = { x, y -> - sqrt(1 - x.pow(2) - y.pow(2)) }
                             )
                         ))
-                    )))
+                    ))
                 }
             }
         }
@@ -124,16 +124,16 @@ fun CatalogOfSurfaces() = WikiSection("Catalog of Surfaces") {
             +br()
             +PrimaryFigure {
                 +div(square, RCStyle(const(AnonymousCSSClass("height: 200px")))) {
-                    +CabinetProjectedGraph3d(const(Graph3dFormat(
-                        _precision = const(0.5),
-                        _fns = const(listOf(
+                    +CabinetProjectedGraph3d(const(Graph3dProperties(
+                        precision = 0.5,
+                        fns = listOf(
                             Graph3dFunction(
                                 fn = { x, y -> sqrt(1.0.pow(2) - (x - x1).pow(2) - (y - y1).pow(2)) + z1 }
                             ),
                             Graph3dFunction(
                                 fn = { x, y -> - sqrt(1.0.pow(2) - (x - x1).pow(2) - (y - y1).pow(2)) + z1 }
                             )
-                        ))
+                        )
                     )))
                 }
             }

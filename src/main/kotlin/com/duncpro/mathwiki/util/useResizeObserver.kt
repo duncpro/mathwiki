@@ -13,7 +13,7 @@ fun FcScope.useResizeObserver(): Pair<StaticDOMHandle<Element>, ReactiveRef<DOMR
 }
 
 fun FcScope.useResizeObserver(domHandle: StaticDOMHandle<out Element>): ReactiveRef<DOMRectReadOnly?> {
-    val rect: ReactiveRef<DOMRectReadOnly?> = useValueStream(initialValue = null) {
+    val rect: ReactiveRef<DOMRectReadOnly?> = useStateSource(initialValue = null) {
         val domElement = domHandle.unwrap()
         @Suppress("UNUSED_VARIABLE")
         val observerCallback: dynamic = { entries: dynamic ->
@@ -23,7 +23,7 @@ fun FcScope.useResizeObserver(domHandle: StaticDOMHandle<out Element>): Reactive
         }
         val observer = js("new ResizeObserver(observerCallback)")
         observer.observe(domElement)
-        return@useValueStream {
+        return@useStateSource {
             observer.unobserve(domElement)
             observer.disconnect()
             Unit

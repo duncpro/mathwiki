@@ -42,8 +42,8 @@ fun WikiSection(title: String, children: Children) = UI {
     """)
     ))
 
-    useMountEffect {
-        if (parent == null) return@useMountEffect
+    useMountAction {
+        if (parent == null) return@useMountAction
         val entry = WikiIndexEntry(title, "#${encodeURIComponent(context.anchorId)}")
         val parentIndex = parent.index.unref()
         parentIndex.add(entry)

@@ -4,7 +4,7 @@ import com.duncpro.mathwiki.graphics.CabinetProjectedGraph3d
 import com.duncpro.mathwiki.graphics.Graph2d
 import com.duncpro.mathwiki.graphics.Graph2dFormat
 import com.duncpro.mathwiki.graphics.Graph2dFunction
-import com.duncpro.mathwiki.graphics.Graph3dFormat
+import com.duncpro.mathwiki.graphics.Graph3dProperties
 import com.duncpro.mathwiki.graphics.Graph3dFunction
 import com.duncpro.mathwiki.graphics.Math
 import com.duncpro.mathwiki.graphics.MathBlock
@@ -108,9 +108,9 @@ fun Functions() = WikiSection("Functions") {
                 g(x, y) = \pm \sqrt{1-x^2} - y
             """)
             +br()
-            +CabinetProjectedGraph3d(const(Graph3dFormat(
-                _precision = const(0.20),
-                _fns = const(listOf(
+            +CabinetProjectedGraph3d(const(Graph3dProperties(
+                precision = 0.20,
+                fns = listOf(
                     Graph3dFunction(
                         fn = { x, y -> 0 + sqrt(1.0 - x.pow(2)) - y },
                     ),
@@ -118,7 +118,6 @@ fun Functions() = WikiSection("Functions") {
                         fn = { x, y -> 0 - sqrt(1.0 - x.pow(2)) - y },
                     )
                 ))
-            )
             ))
             +p {
                 +"When graphing a three-dimensional function, both parameters, "; +Math("x"); +", and "; +Math("y");
@@ -140,10 +139,10 @@ fun Functions() = WikiSection("Functions") {
             }
             +MathBlock("z=f(x,y)=y^2")
             +br()
-            +CabinetProjectedGraph3d(const(Graph3dFormat(
-                _fns = const(listOf(
+            +CabinetProjectedGraph3d(const(Graph3dProperties(
+                fns = listOf(
                     Graph3dFunction(fn = { x, y -> y.pow(2) })
-                ))
+                )
             )))
             +p {
                 +"The function is defined for all values of "; +Math("x"); +". The altitude of each point "; +Math("z");
@@ -160,8 +159,6 @@ fun Functions() = WikiSection("Functions") {
                 +" an animated three-dimensional graph, or three-dimensional graph where the color of each point represents";
                 +" the value of the fourth dimension."
             }
-            var t by ReactiveProperty(0.0)
-
         }
     }
 }
