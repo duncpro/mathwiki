@@ -7,7 +7,7 @@ import org.w3c.dom.HTMLSpanElement
 
 value class Tex(@Language("tex") val raw: String)
 
-fun Math(tex: ReactiveRef<Tex>) = UIBoundary {
+fun Math(tex: ReactiveRef<Tex>) = UILifecycleBoundary {
     val _span = useStaticDOMHandle<HTMLSpanElement>()
 
     useRenderEffect {
@@ -22,7 +22,7 @@ fun Math(tex: ReactiveRef<Tex>) = UIBoundary {
 
 fun Math(@Language("tex") tex: String) = Math(const(Tex(tex)))
 
-fun MathBlock(tex: ReactiveRef<Tex>) = UIBoundary {
+fun MathBlock(tex: ReactiveRef<Tex>) = UILifecycleBoundary {
     val _div = useStaticDOMHandle<HTMLDivElement>()
 
     useRenderEffect {

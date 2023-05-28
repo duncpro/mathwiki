@@ -32,7 +32,7 @@ private fun WikiSectionContext(title: String, parent: WikiSectionContext?): Wiki
     return WikiSectionContext(title, parent, anchorId, pathElements.size)
 }
 
-fun WikiSection(title: String, children: Children) = UIBoundary {
+fun WikiSection(title: String, children: Children) = UILifecycleBoundary {
     val parent = useOptionalContext<WikiSectionContext>()
     val context = WikiSectionContext(title, parent)
 

@@ -26,7 +26,7 @@ class NumberlineFormat(
     val _pointStyle: R<(Int) -> NumberlinePointStyle> = const { NumberlinePointStyle() }
 )
 
-fun Numberline(_format: R<NumberlineFormat> = const(NumberlineFormat())) = UIBoundary {
+fun Numberline(_format: R<NumberlineFormat> = const(NumberlineFormat())) = UILifecycleBoundary {
     val origin by ref { _format.bind()._origin.bind() }
     val label by ref { _format.bind()._label.bind() }
     val pointStyleFn by ref { _format.bind()._pointStyle.bind() }

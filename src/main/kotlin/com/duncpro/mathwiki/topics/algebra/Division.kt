@@ -38,7 +38,7 @@ fun Division() = WikiSection("Division") {
     }
 }
 
-fun GroupingDiagram() = UIBoundary {
+fun GroupingDiagram() = UILifecycleBoundary {
     val `#canvas` = useStaticDOMHandle<HTMLCanvasElement>()
     val `$style` = useStyleClass { AnonymousCSSClass("""
         width: 100%;

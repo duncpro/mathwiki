@@ -25,7 +25,7 @@ class Graph2dFormat(
     val _lineSegments: ReactiveRef<List<Graph2dLineSegment>> = const(emptyList())
 )
 
-fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UIBoundary {
+fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UILifecycleBoundary {
     val fns by ref { _format.bind()._fns.bind() }
     val precision by ref { _format.bind()._precision.bind() }
     val step by ref { _format.bind()._step.bind() }
