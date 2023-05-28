@@ -2,7 +2,7 @@ package com.duncpro.mathwiki.util
 
 import com.duncpro.webk.*
 
-fun h(_n: ReactiveRef<Int>, children: Children) = UI {
+fun h(_n: ReactiveRef<Int>, children: Children) = run {
     Fork {
         when (_n.bind()) {
             1 -> h1 { +children }

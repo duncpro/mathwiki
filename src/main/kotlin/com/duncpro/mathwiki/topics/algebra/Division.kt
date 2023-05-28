@@ -38,7 +38,7 @@ fun Division() = WikiSection("Division") {
     }
 }
 
-fun GroupingDiagram() = UI {
+fun GroupingDiagram() = UIBoundary {
     val `#canvas` = useStaticDOMHandle<HTMLCanvasElement>()
     val `$style` = useStyleClass { AnonymousCSSClass("""
         width: 100%;

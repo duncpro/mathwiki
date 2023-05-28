@@ -12,21 +12,17 @@ import com.duncpro.mathwiki.topics.trigonometry.PythagoreanTheorem
 import com.duncpro.mathwiki.topics.trigonometry.Trigonometry
 import com.duncpro.webk.*
 
-fun Home() = UI {
-    val limitWidth = useStyleClass(const(AnonymousCSSClass("""
-        max-width: 780px;
-    """)))
-
-    val padWithWhitespace = useStyleClass(const(AnonymousCSSClass("""
+fun Home() = run {
+    val `$inner` = RCStyle(const(AnonymousCSSClass("max-width: 780px;")))
+    val `$outer` = RCStyle(const(AnonymousCSSClass("""
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
     """)))
 
-
-    div(padWithWhitespace) {
-        +div(limitWidth) {
+    div(`$outer`) {
+        +div(`$inner`) {
             +WikiSection("Personal Math Wiki") {
                 +Numbers()
                 +Algebra()

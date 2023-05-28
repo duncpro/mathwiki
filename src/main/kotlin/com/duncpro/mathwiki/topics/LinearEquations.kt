@@ -7,7 +7,7 @@ import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.webk.*
 import org.w3c.dom.HTMLInputElement
 
-fun LinearEquations() = UI {
+fun LinearEquations() = run {
     var m by ReactiveProperty(1)
     var b by ReactiveProperty(0)
 

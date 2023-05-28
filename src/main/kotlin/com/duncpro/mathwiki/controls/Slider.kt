@@ -8,10 +8,8 @@ class SliderRange<T>(val min: T, val max: T, val step: T, val fromString: (Strin
 fun DecimalSliderRange(min: Double, max: Double, step: Double): SliderRange<Double> =
     SliderRange(min, max, step, String::toDouble)
 
-fun <T> Slider(_range: ReactiveRef<SliderRange<T>>, _value: ReactiveRef<T>, onSlide: UnrefScope.(T) -> Unit,
-               label: UIComponent? = null) = UI {
-
-    val `$container` = useStyleClass(const(AnonymousCSSClass("""
+fun <T> Slider(_range: R<SliderRange<T>>, _value: R<T>, onSlide: UnrefScope.(T) -> Unit, label: UIComponent? = null) = run {
+    val `$container` = RCStyle(const(AnonymousCSSClass("""
         display: flex;
         padding: 5px;
     """)))

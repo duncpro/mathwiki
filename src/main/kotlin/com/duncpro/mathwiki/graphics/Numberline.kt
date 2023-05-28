@@ -21,12 +21,12 @@ class NumberlinePointStyle(
 )
 
 class NumberlineFormat(
-    val _origin: ReactiveRef<Int> = const(0),
-    val _label: ReactiveRef<(Int) -> String> = const { "$it" },
-    val _pointStyle: ReactiveRef<(Int) -> NumberlinePointStyle> = const { NumberlinePointStyle() }
+    val _origin: R<Int> = const(0),
+    val _label: R<(Int) -> String> = const { "$it" },
+    val _pointStyle: R<(Int) -> NumberlinePointStyle> = const { NumberlinePointStyle() }
 )
 
-fun Numberline(_format: ReactiveRef<NumberlineFormat> = const(NumberlineFormat())) = UI {
+fun Numberline(_format: R<NumberlineFormat> = const(NumberlineFormat())) = UIBoundary {
     val origin by ref { _format.bind()._origin.bind() }
     val label by ref { _format.bind()._label.bind() }
     val pointStyleFn by ref { _format.bind()._pointStyle.bind() }

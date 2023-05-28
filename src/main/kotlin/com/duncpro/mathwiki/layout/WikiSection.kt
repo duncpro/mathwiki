@@ -32,7 +32,7 @@ private fun WikiSectionContext(title: String, parent: WikiSectionContext?): Wiki
     return WikiSectionContext(title, parent, anchorId, pathElements.size)
 }
 
-fun WikiSection(title: String, children: Children) = UI {
+fun WikiSection(title: String, children: Children) = UIBoundary {
     val parent = useOptionalContext<WikiSectionContext>()
     val context = WikiSectionContext(title, parent)
 
@@ -61,12 +61,12 @@ fun WikiSection(title: String, children: Children) = UI {
     })
 }
 
-private fun WikiSectionIndexView(entries: ReactiveList<WikiIndexEntry>) = UI {
-    val `$style` = useStyleClass { AnonymousCSSClass("""
+private fun WikiSectionIndexView(entries: ReactiveList<WikiIndexEntry>) = run {
+    val `$style` = RCStyle(ref { AnonymousCSSClass("""
         max-height: 150px;
         display: ${ if (entries.bind().isEmpty()) "none" else "flex" };
         flex-flow: wrap column;
-    """) }
+    """) })
 
     ul(`$style`) {
         +ForEach(entries) { entry ->

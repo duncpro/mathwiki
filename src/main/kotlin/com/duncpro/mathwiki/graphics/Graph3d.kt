@@ -18,7 +18,7 @@ class Graph3dProperties(
     val scale: Double = 50.0 /* CSS Pixel Per Unit Space */
 )
 
-fun CabinetProjectedGraph3d(_format: ReactiveRef<Graph3dProperties> = const(Graph3dProperties())) = UI {
+fun CabinetProjectedGraph3d(_format: R<Graph3dProperties> = const(Graph3dProperties())) = UIBoundary {
     val format by ref { _format.bind() }
 
     val `#canvas` = useStaticDOMHandle<HTMLCanvasElement>()

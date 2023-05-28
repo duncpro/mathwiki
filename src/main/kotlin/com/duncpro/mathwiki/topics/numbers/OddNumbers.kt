@@ -8,7 +8,7 @@ import com.duncpro.mathwiki.graphics.NumberlinePointStyle
 import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.webk.*
 
-fun OddNumbers() = UI {
+fun OddNumbers() = run {
     WikiSection("Odd Numbers") {
         +MathBlock("f(n) = 2n + 1")
         +Numberline(const(NumberlineFormat(

@@ -64,7 +64,7 @@ fun Circles() = WikiSection("Circles") {
     +UnitCircle()
 }
 
-private fun UnitCircle() = UI {
+private fun UnitCircle() = run {
     var angle by ReactiveProperty(1.0 / 4.0 * PI)
     WikiSection("The Unit Circle") {
         +p {

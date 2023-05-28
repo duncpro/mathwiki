@@ -9,7 +9,7 @@ import com.duncpro.mathwiki.layout.WikiSection
 import com.duncpro.webk.*
 import kotlin.math.exp
 
-fun EulersConstant() = UI {
+fun EulersConstant() = run {
     var x1 by ReactiveProperty(initialValue = 1.0)
 
     WikiSection("Euler's Constant") {

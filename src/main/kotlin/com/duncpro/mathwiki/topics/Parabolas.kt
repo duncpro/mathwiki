@@ -9,7 +9,7 @@ import com.duncpro.webk.*
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-fun Parabolas() = UI {
+fun Parabolas() = run {
     WikiSection("Parabolas") {
         +WikiSection("Standard Form") {
             +MathBlock("y=x^2")
