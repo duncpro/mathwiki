@@ -39,8 +39,8 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UI {
         height: 100%;
     """) }
 
-    var horizontalScrollOffset by useLocalState(initialValue = 0.0)
-    var verticalScrollOffset by useLocalState(initialValue = 0.0)
+    var horizontalScrollOffset by ReactiveProperty(initialValue = 0.0)
+    var verticalScrollOffset by ReactiveProperty(initialValue = 0.0)
     val handleScroll = handle(HTMLCanvasElement::onwheel) { event ->
         if (!isUserScrollable) return@handle
         horizontalScrollOffset += (event.deltaX * -1)

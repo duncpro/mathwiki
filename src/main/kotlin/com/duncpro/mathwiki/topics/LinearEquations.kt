@@ -8,8 +8,8 @@ import com.duncpro.webk.*
 import org.w3c.dom.HTMLInputElement
 
 fun LinearEquations() = UI {
-    var m by useLocalState(1)
-    var b by useLocalState(0)
+    var m by ReactiveProperty(1)
+    var b by ReactiveProperty(0)
 
     WikiSection("Linear Equations") {
         +MathBlock("y=mx+b")

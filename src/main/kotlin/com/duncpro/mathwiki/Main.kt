@@ -1,8 +1,8 @@
 package com.duncpro.mathwiki
 
-import com.duncpro.webk.place
+import com.duncpro.webk.mount
 import kotlinx.browser.document
 
 fun main() {
-    place(Home(), within = document.getElementById("root")!!)
+    mount(Home(), at = document.getElementById("root")!!)
 }

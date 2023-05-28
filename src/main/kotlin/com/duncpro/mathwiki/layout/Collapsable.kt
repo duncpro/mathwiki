@@ -6,7 +6,7 @@ import com.duncpro.webk.*
 import org.w3c.dom.HTMLElement
 
 fun Collapsable(children: Children) = UI {
-    var isCollapsed by useLocalState(initialValue = false)
+    var isCollapsed by ReactiveProperty(initialValue = false)
 
     Fork {
         if (isCollapsed) {

@@ -65,7 +65,7 @@ fun Circles() = WikiSection("Circles") {
 }
 
 private fun UnitCircle() = UI {
-    var angle by useLocalState(1.0 / 4.0 * PI)
+    var angle by ReactiveProperty(1.0 / 4.0 * PI)
     WikiSection("The Unit Circle") {
         +p {
             +"The circle centered at the origin with a radius of 1 is often called the Unit Circle. "

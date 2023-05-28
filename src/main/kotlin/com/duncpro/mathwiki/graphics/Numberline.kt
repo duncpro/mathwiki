@@ -39,7 +39,7 @@ fun Numberline(_format: ReactiveRef<NumberlineFormat> = const(NumberlineFormat()
     val _canvas = useStaticDOMHandle<HTMLCanvasElement>()
     val rect by useResizeObserver(_canvas)
 
-    var scrollOffset by useLocalState(0.0)
+    var scrollOffset by ReactiveProperty(0.0)
     val handleHorizontalScroll = handle(HTMLCanvasElement::onwheel) { event ->
         if (event.deltaY.absoluteValue > event.deltaX.absoluteValue) return@handle
         scrollOffset += (-1 * event.deltaX)

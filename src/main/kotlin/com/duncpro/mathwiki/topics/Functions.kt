@@ -141,7 +141,7 @@ fun Functions() = WikiSection("Functions") {
             +br()
             +CabinetProjectedGraph3d(const(Graph3dProperties(
                 fns = listOf(
-                    Graph3dFunction(fn = { x, y -> y.pow(2) })
+                    Graph3dFunction(fn = { _, y -> y.pow(2) })
                 )
             )))
             +p {

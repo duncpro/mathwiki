@@ -10,7 +10,7 @@ import com.duncpro.webk.*
 import kotlin.math.exp
 
 fun EulersConstant() = UI {
-    var x1 by useLocalState(initialValue = 1.0)
+    var x1 by ReactiveProperty(initialValue = 1.0)
 
     WikiSection("Euler's Constant") {
         +p {

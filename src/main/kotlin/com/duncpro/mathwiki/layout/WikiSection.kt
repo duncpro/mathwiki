@@ -13,7 +13,7 @@ private class WikiSectionContext(
     val parent: WikiSectionContext?,
     val anchorId: String,
     val depth: Int,
-    val index: MutableUIList<WikiIndexEntry> = MutableUIList(),
+    val index: MutableReactiveList<WikiIndexEntry> = MutableReactiveList(),
 )
 
 private fun WikiSectionContext(title: String, parent: WikiSectionContext?): WikiSectionContext {
@@ -61,7 +61,7 @@ fun WikiSection(title: String, children: Children) = UI {
     })
 }
 
-private fun WikiSectionIndexView(entries: UIList<WikiIndexEntry>) = UI {
+private fun WikiSectionIndexView(entries: ReactiveList<WikiIndexEntry>) = UI {
     val `$style` = useStyleClass { AnonymousCSSClass("""
         max-height: 150px;
         display: ${ if (entries.bind().isEmpty()) "none" else "flex" };
