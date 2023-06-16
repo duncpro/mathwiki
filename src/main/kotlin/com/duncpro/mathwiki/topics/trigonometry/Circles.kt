@@ -74,11 +74,13 @@ private fun UnitCircle() = UI {
         +MathBlock("1=x^2+y^2")
         +br()
         +span(RCStyle(const(AnonymousCSSClass("color: blue")))) {
-            +Math(ref { Tex("\\cos(\\theta)") })
+            +Math(ref { Tex("\\cos(\\theta)=") })
+            +ref { "${cos(angle)}".take(4) }
         }
         +span { +" " }
         +span(RCStyle(const(AnonymousCSSClass("color: green")))) {
-            +Math(ref { Tex("\\sin(\\theta)") })
+            +Math(ref { Tex("\\sin(\\theta)=") })
+            +ref { "${sin(angle)}".take(4) }
         }
         +Graph2d(const(Graph2dFormat(
             _fns = const(listOf(
