@@ -77,10 +77,14 @@ private fun UnitCircle() = run {
             +Math(ref { Tex("\\cos(\\theta)=") })
             +ref { "${cos(angle)}".take(4) }
         }
-        +span { +" " }
+        +span { +", " }
         +span(RCStyle(const(AnonymousCSSClass("color: green")))) {
             +Math(ref { Tex("\\sin(\\theta)=") })
             +ref { "${sin(angle)}".take(4) }
+        }
+        +span { +", " }
+        +span(RCStyle(const(AnonymousCSSClass("color: red")))) {
+            +ref { "hypotenuse = radius = 1" }
         }
         +Graph2d(const(Graph2dFormat(
             _fns = const(listOf(

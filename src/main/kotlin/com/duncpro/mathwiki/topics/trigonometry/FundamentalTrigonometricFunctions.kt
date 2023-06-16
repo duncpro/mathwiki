@@ -9,8 +9,8 @@ fun FundamentalTrigonometricFunctions() = WikiSection("Fundamental Trigonometric
     +WikiSection("Cosine") {
         +p {
             +"Given the measure of the angle at the intersection of the hypotenuse and x-axis, the ";
-            +Math("\\cos(\\theta)"); +" function returns the ratio of the length of the leg overlapping ";
-            +"the x-axis to the length of the hypotenuse."
+            +Math("\\cos(\\theta)"); +" function returns the ratio of the lengths of the legs a right triangle. "
+            +"Specifically the ratio of the length of the leg overlapping the x-axis to the length of the hypotenuse."
         }
         +p {
             +"The leg overlapping the x-axis is typically called the "; +b { +"adjacent" }; +" leg."
@@ -30,8 +30,8 @@ fun FundamentalTrigonometricFunctions() = WikiSection("Fundamental Trigonometric
     +WikiSection("Sin") {
         +p {
             +"Given the measure of the angle at the intersection of the hypotenuse and x-axis, the ";
-            +Math("\\sin(\\theta)"); +" function returns the ratio of the length of the leg parallel to the ";
-            +"y-axis to the length of the hypotenuse."
+            +Math("\\sin(\\theta)"); +" function returns the ratio of the lengths of the legs of a right triangle. "
+            +"Specifically the ratio of the length of the leg parallel to the y-axis to the length of the hypotenuse."
         }
         +p {
             +"The leg parallel with the y-axis is typically called the "; +b { +"opposite" }; +" leg."
