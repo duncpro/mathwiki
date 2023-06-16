@@ -2,7 +2,7 @@
   <artifact type="jar" name="mathwiki-1.0-SNAPSHOT">
     <output-path>$PROJECT_DIR$/build/libs</output-path>
     <root id="archive" name="mathwiki-1.0-SNAPSHOT.jar">
-      <element id="module-output" name="com.duncpro.mathwiki.mathwiki.main" />
+      <element id="module-output" name="Summer2023.mathwiki.main" />
     </root>
   </artifact>
 </component>
