@@ -26,5 +26,10 @@
       <option name="name" value="maven" />
       <option name="url" value="https://packages.jetbrains.team/maven/p/reflekt/reflekt" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://duncpro-public-maven-repo.s3.amazonaws.com" />
+    </remote-repository>
   </component>
 </project>
