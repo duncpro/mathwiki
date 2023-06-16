@@ -23,6 +23,9 @@ fun FundamentalTrigonometricFunctions() = WikiSection("Fundamental Trigonometric
             +"1."
         }
         +MathBlock("\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}}")
+        +WikiSection("Range") {
+            +Math("""-1 \le \cos(\theta) \le 1""")
+        }
     }
     +WikiSection("Sin") {
         +p {
@@ -40,6 +43,9 @@ fun FundamentalTrigonometricFunctions() = WikiSection("Fundamental Trigonometric
             +"the unit circle has a length of 1 (equal to the radius)."
         }
         +MathBlock("\\sin(\\theta) = \\frac{\\text{opposite}}{\\text{hypotenuse}}")
+        +WikiSection("Range") {
+            +Math("""-1 \le \sin(\theta) \le 1""")
+        }
     }
     +WikiSection("Tangent") {
         +p {
