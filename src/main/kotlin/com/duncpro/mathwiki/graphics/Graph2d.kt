@@ -19,6 +19,7 @@ class Graph2dLineSegment(val x1: Double, val y1: Double, val x2: Double, val y2:
 
 class Graph2dFormat(
     val _fns: ReactiveRef<List<Graph2dFunction>> = const(emptyList()),
+    val _inverseFns: ReactiveRef<List<Graph2dFunction>> = const(emptyList()),
     val _precision: ReactiveRef<Double> = const(0.01),
     val _step: ReactiveRef<Double> = const(1.0),
     val _isUserScrollable: ReactiveRef<Boolean> = const(false),
@@ -27,6 +28,7 @@ class Graph2dFormat(
 
 fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UILifecycleBoundary {
     val fns by ref { _format.bind()._fns.bind() }
+    val inverseFns by ref { _format.bind()._inverseFns.bind() }
     val precision by ref { _format.bind()._precision.bind() }
     val step by ref { _format.bind()._step.bind() }
     val isUserScrollable by ref { _format.bind()._isUserScrollable.bind() }
@@ -115,6 +117,20 @@ fun Graph2d(_format: ReactiveRef<Graph2dFormat> = const(Graph2dFormat())) = UILi
             canvasContext.moveTo(pixelX, 0.0)
             canvasContext.lineTo(pixelX, canvasElementHeight)
             canvasContext.stroke()
+        }
+
+        for (fn in inverseFns) {
+            var y = minY
+            while (y < maxY) {
+                val x = fn.fn(this, -1 * y)
+                if (x in minX..maxX) {
+                    val pixelX = (x - minX) / step * GRID_LINE_INTERVAL
+                    val pixelY = (y - minY) / step * GRID_LINE_INTERVAL
+                    canvasContext.fillStyle = fn.color
+                    canvasContext.fillRect(pixelX - (PIXEL_SIZE / 2), pixelY - (PIXEL_SIZE / 2), PIXEL_SIZE, PIXEL_SIZE)
+                }
+                y += precision
+            }
         }
 
         for (fn in fns) {

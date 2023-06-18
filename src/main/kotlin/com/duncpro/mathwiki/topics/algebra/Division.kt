@@ -16,8 +16,8 @@ fun Division() = WikiSection("Division") {
             x \div y = x\space[-y\space[\text{ repeated }n\text{ times } ]]
         """)
         +p {
-            +"Division is repeated subtraction. Or in a more abstract sense, finding the amount of times one number ";
-            +Math("y"); +" fits inside another, "; +Math("x"); + "."
+            +"Division is repeated subtraction from an initial quantity. In a more abstract sense, division is finding"
+            +" the amount of times one quantity is contained within another."
         }
     }
     +WikiSection("Sharing Problems") {
