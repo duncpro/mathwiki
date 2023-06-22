@@ -42,9 +42,9 @@ fun Multiplication() = WikiSection("Multiplication") {
         +p {
             +"The product of two positive quantities "; +Math("x * y = p"); +" can be visualized in two-dimensional space ";
             +"on a coordinate plane. Each square on the coordinate plane represents a unit, 1. ";
-            +"The product "; +Math("p"); +" can be computed by simply counting the squares after the x-axis ";
-            +" but before the "; +" parallel vertical axis at "; +Math("x"); +". But not below the y-axis ";
-            +" and not above the parallel horizontal axis at "; +Math("y"); +"."
+            +"The product "; +Math("p"); +" can be computed by simply counting the squares above the x-axis ";
+            +" but before the "; +" parallel horizontal axis at "; +Math("y"); +". But not before the y-axis ";
+            +" and not after the parallel vertical axis at "; +Math("x"); +"."
         }
         var x by ReactiveProperty(1); var y by ReactiveProperty(1)
         +div(RCStyle(const(AnonymousCSSClass("display: flex;")))) {
