@@ -4,6 +4,7 @@ import com.duncpro.mathwiki.centerText
 import com.duncpro.mathwiki.controls.Slider
 import com.duncpro.mathwiki.controls.SliderRange
 import com.duncpro.mathwiki.graphics.Math
+import com.duncpro.mathwiki.graphics.MathBlock
 import com.duncpro.mathwiki.graphics.Numberline
 import com.duncpro.mathwiki.graphics.NumberlineFormat
 import com.duncpro.mathwiki.graphics.NumberlinePointStyle
@@ -71,4 +72,21 @@ fun Subtraction() = WikiSection("Subtraction") {
         +" to reach "; +Math("a"); +"."; +br(); +"This is reflected in the difference "; +Math("a - b = c"); +" since ";
         +Math("""c \lt 0"""); +"."
     }
+    +p {
+        +"The geometric definition of subtraction can be applied to subtraction in multiple dimensions as well."
+        +" Specifically "; +Math("""\vec{a}-\vec{b}"""); +" is equal to "; +Math("""=\vec{c}"""); +", "
+        +"the magnitude and direction which one must travel from "; +Math("""\vec{b}"""); +" in order to reach ";
+        +Math("""\vec{a}""")
+    }
+    +p {
+        +"Therefore, the difference of two "; +Math("a-b"); +" can be depicted graphically as a vector ";
+        +"originating at zero and terminating at "; +Math("a"); +", with another vector originating at "; +Math("a");
+        +" and terminating at "; +Math("a-b"); +". The the magnitude of the second vector is of course ";
+        +Math("b"); +"."
+    }
+    +p {
+        +"The idea that the difference "; +Math("a-b=c"); +" is equal to an adjustment on "; +Math("b");
+        +" in order to reach "; +Math("a"); +" can be seen algebraically..."
+    }
+    +MathBlock("""a-b=c \implies b+c=a""")
 }
